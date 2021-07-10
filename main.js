@@ -1,4 +1,3 @@
-// Este es el punto de entrada de tu aplicacion
 //Ingreso de usuarios ya registrados
 
 let signButton = document.getElementById("signButton");
@@ -64,6 +63,24 @@ function check() {
 }
 
 
-import { myFunction } from './lib/index.js';
+function observer(){
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          console.log('Active usser')
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          var uid = user.uid;
+          // ...
+        } else {
+          // User is signed out
+          console.log('Inactive usser')
+          // ...
+        }
+      });
+}
+observer();
 
+
+
+import { myFunction } from './lib/index.js';
 myFunction();
