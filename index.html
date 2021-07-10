@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>nook-nook</title>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nook-nook</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyDzexZf1ArQOUT3Nnne8ycmsuJbjJIya2w",
-    authDomain: "nook-nook.firebaseapp.com",
-    databaseURL: "https://nook-nook-default-rtdb.firebaseio.com",
-    projectId: "nook-nook",
-    storageBucket: "nook-nook.appspot.com",
-    messagingSenderId: "498649354115",
-    appId: "1:498649354115:web:9a728cfa828020952930b6",
-    measurementId: "G-CRJZ5NQKJ5"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDzexZf1ArQOUT3Nnne8ycmsuJbjJIya2w",
+            authDomain: "nook-nook.firebaseapp.com",
+            databaseURL: "https://nook-nook-default-rtdb.firebaseio.com",
+            projectId: "nook-nook",
+            storageBucket: "nook-nook.appspot.com",
+            messagingSenderId: "498649354115",
+            appId: "1:498649354115:web:9a728cfa828020952930b6",
+            measurementId: "G-CRJZ5NQKJ5"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
 </head>
+
 <body>
-  <script type="module" src="main.js"></script>
+    <script type="module" src="main.js" defer></script>
+
+    <h1>HOLA MUNDO!</h1>
+    <input id="email2" type="email" placeholder="ingresa email">
+    <input id="password2" type="password" placeholder="ingresa contraseña">
+    <button id="buttonRegister">Crear</button>
+
+
+    <h4>Ingreso</h4>
+    <input id="email1" type="email" placeholder="Ingresa tu mail">
+    <input id="password1" type="password" placeholder="Contraseña">
+    <button id="signButton">Iniciar sesión</button>
 </body>
+
 </html>
