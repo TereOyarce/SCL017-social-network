@@ -72,6 +72,8 @@ function register() {
 }
 
 function check() {
+    let success = document.getElementById("success");
+    success.innerHTML = `<p>Registro exitoso, verificar email</p>`
     firebase.auth().currentUser.sendEmailVerification()
         .then(() => {
             // Email verification sent!
@@ -81,20 +83,21 @@ function check() {
 }
 
 
-function observer(){
+function observer() {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          console.log('Active usser')
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-          var uid = user.uid;
-          // ...
+
+            console.log('Active usser')
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+            var uid = user.uid;
+            // ...
         } else {
-          // User is signed out
-          console.log('Inactive usser')
-          // ...
+            // User is signed out
+            console.log('Inactive usser')
+                // ...
         }
-      });
+    });
 }
 observer();
 
