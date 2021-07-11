@@ -1,6 +1,24 @@
 // Ingreso de usuarios ya registrados
+import { changeRoute } from './lib/router.js'
+import { login } from './lib/view/login.js';
 
-import { myFunction } from './lib/index.js';
+const init = () => {
+  window.addEventListener('hashchange', () => {
+    changeRoute(window.location.hash);
+    });
+    window.location.hash = '#/login';
+};
+const app = firebase.app();
+//console.log(app);
+window.addEventListener('load', init);
+
+
+
+
+
+//Ingreso de usuarios ya registrados
+
+//import { myFunction } from './lib/index.js';
 
 const signButton = document.getElementById('signButton');
 
@@ -84,3 +102,9 @@ function observer() {
 }
 observer();
 signIn();
+
+
+
+import { myFunction } from './lib/index.js';
+myFunction();
+export { signIn };
