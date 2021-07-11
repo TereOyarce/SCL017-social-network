@@ -1,4 +1,22 @@
-//Ingreso de usuarios ya registrados
+import {changeRoute} from './lib/router.js'
+import { login } from './lib/view/login.js';
+
+
+const init = () => {
+    window.addEventListener('hashchange', () => {
+      changeRoute(window.location.hash);
+    });
+    window.location.hash = '#/login';
+  };
+  const app = firebase.app();
+  //console.log(app);
+window.addEventListener('load', init);
+
+
+
+
+
+/*//Ingreso de usuarios ya registrados
 
 let signButton = document.getElementById("signButton");
 signButton.addEventListener("click", () => {
@@ -83,4 +101,4 @@ observer();
 
 
 import { myFunction } from './lib/index.js';
-myFunction();
+myFunction();*/
