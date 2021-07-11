@@ -1,107 +1,110 @@
-import {changeRoute} from './lib/router.js'
+// Ingreso de usuarios ya registrados
+import { changeRoute } from './lib/router.js'
 import { login } from './lib/view/login.js';
 
-
 const init = () => {
-    window.addEventListener('hashchange', () => {
-      changeRoute(window.location.hash);
+  window.addEventListener('hashchange', () => {
+    changeRoute(window.location.hash);
     });
     window.location.hash = '#/login';
-  };
-  const app = firebase.app();
-  //console.log(app);
+};
+const app = firebase.app();
+//console.log(app);
 window.addEventListener('load', init);
 
 
 
 
 
-/*//Ingreso de usuarios ya registrados
+//Ingreso de usuarios ya registrados
 
-let signButton = document.getElementById("signButton");
-signButton.addEventListener("click", () => {
-    signIn();
-});
+//import { myFunction } from './lib/index.js';
 
+const signButton = document.getElementById('signButton');
 
 function signIn() {
-    let email = document.getElementById('email1').value;
-    let password = document.getElementById('password1').value;
+    const email = document.getElementById('email1').value;
+    const password = document.getElementById('password1').value;
 
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in
-            let user = userCredential.user;
+            const user = userCredential.user;
+            console.log(user);
             // ...
         })
         .catch((error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
+            const errorCode = error.code;
+            const errorMessage = error.message;
             console.log(errorCode);
             console.log(errorMessage);
         });
 }
-
-//Registro Usuarios
-let buttonR = document.getElementById("buttonRegister");
-
-buttonR.addEventListener("click", () => {
-    register();
-
+signButton.addEventListener('click', () => {
+    signIn();
 });
 
+// Registro Usuarios
+
+const buttonR = document.getElementById('buttonRegister');
+
 function register() {
-    let emailRegister = document.getElementById("email2").value;
-    let passRegister = document.getElementById("password2").value;
+    const emailRegister = document.getElementById('email2').value;
+    const passRegister = document.getElementById('password2').value;
+
+    function check() {
+        const success = document.getElementById('success');
+        success.innerHTML = '<p>Registro exitoso, verificar email</p>';
+        firebase.auth().currentUser.sendEmailVerification()
+            .then(() => {
+                // Email verification sent!
+                // ...
+            });
+    }
 
     firebase.auth().createUserWithEmailAndPassword(emailRegister, passRegister)
-        .then(function() {
-            check()
+        .then(() => {
+            check();
         })
         .then((userCredential) => {
             // Signed in
-            let user = userCredential.user;
+            const user = userCredential.user;
+            console.log(user);
             // ...
         })
         .catch((error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
+            const errorCode = error.code;
+            const errorMessage = error.message;
             // ..
             console.log(errorCode);
+            console.log(errorMessage);
         });
 }
-
-function check() {
-    let success = document.getElementById("success");
-    success.innerHTML = `<p>Registro exitoso, verificar email</p>`
-    firebase.auth().currentUser.sendEmailVerification()
-        .then(() => {
-            // Email verification sent!
-            // ...
-        });
-
-}
-
+buttonR.addEventListener('click', () => {
+    register();
+});
 
 function observer() {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-
-            console.log('Active usser')
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
-            var uid = user.uid;
+            console.log('Active usser');
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            console.log(uid);
             // ...
         } else {
             // User is signed out
-            console.log('Inactive usser')
-                // ...
+            console.log('Inactive usser');
+            // ...
         }
     });
 }
 observer();
+signIn();
 
 
 
 import { myFunction } from './lib/index.js';
-myFunction();*/
+myFunction();
+export { signIn };
