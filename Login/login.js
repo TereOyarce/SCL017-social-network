@@ -1,4 +1,4 @@
-export const LoginMethod = {
+const LoginMethod = {
   signIn: (email, pass) => {
     firebase.auth().signInWithEmailAndPassword(email, pass)
       .then((userCredential) => {
@@ -15,26 +15,16 @@ export const LoginMethod = {
       });
   },
   login: (divLogin) => {
-    
-      const resDiv = divLogin;
-      const pageLogin = `
-      <div class='login' id='login-screen'>
-        <div class='head'> 
-            <img src="img/logo.png" class="logo">
-            <h1>Nook-Nook</h1>
-        </div> 
-        <div>
-        
-        </div>
-        <div>
-        
-        </div>
-     
+    const resDiv = divLogin;
+    const pageLogin = `
+     <div class='login id='login-screen'>
+      <h1>¡HEllo!<h1>
+      <p>probanding</p>
      </div>
-      
-      `;
-      resDiv.innerHTML = pageLogin;
-      return resDiv;
+    
+    `;
+    resDiv.innerHTML = pageLogin;
+    return resDiv;
   },
   logOut: () => {
 

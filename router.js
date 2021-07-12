@@ -5,26 +5,31 @@ const divLogin = document.createElement('div');
 const showTemplate = (hash) => {
   const containerRoot = document.getElementById('root');
   containerRoot.innerHTML = '';
-
+  
   switch (hash) {
-    case '#/login':
-      containerRoot.appendChild(login(divLogin));
+    case '#/':
+      containerRoot.appendChild(LoginMethod.login(divLogin));
       break;
-      case '#/':
-        containerRoot.appendChild(login(divLogin));
-        break;
-      default:
-        containerRoot.appendChild(errorPage());
-    }
+    case '#/login':
+      containerRoot.appendChild(LoginMethod.login(divLogin));
+      break;
+    
+      /*default:
+        containerRoot.innerHTML = `
+      <h2>No se han encontrado resultados:</h2>
+          `;*/
+   /* default:
+      break;*/
+  }
 };
 
 export const changeRoute = (hash) => {
-  if (hash === '#/login') {
-    return showTemplate(hash);
-  }
   if (hash === '#/') {
     return showTemplate(hash);
   }
-  //return '';
+  if (hash === '#/login') {
+    return showTemplate(hash);
+  }
   return showTemplate(hash);
+  //return '';
 };
