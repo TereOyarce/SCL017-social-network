@@ -1,4 +1,4 @@
-const registerMethod = {
+export const registerMethod = {
   register: (emailRegister, passRegister, sucess) => {
     const sucessCheck = sucess;
     function check(success) {
