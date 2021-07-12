@@ -3,20 +3,33 @@ import { changeRoute } from './router.js';
 import {} from './Login/accessLogin.js';
 import {} from './Register/accessRegister.js';
 
-
-
 const init = () => {
-  const containerRoot = document.getElementById('root');
-  containerRoot.innerHTML = "hola";
+
   window.addEventListener('hashchange', () => {
     changeRoute(window.location.hash);
   });
   window.location.hash = '#/login';
-  
 };
+
+window.addEventListener('load', () => {
+  changeRoute(window.location.hash);
+  init();
+});
+
 const app = firebase.app();
 console.log(app);
-window.addEventListener('load', init);
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Observador
 function observer() {
@@ -36,3 +49,4 @@ function observer() {
   });
 }
 observer();
+
