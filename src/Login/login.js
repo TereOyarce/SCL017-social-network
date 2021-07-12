@@ -17,9 +17,15 @@ const LoginMethod = {
   login: (divLogin) => {
     const resDiv = divLogin;
     const pageLogin = `
-     <div class='login id='login-screen'>
-      <h1>¡HEllo!<h1>
-      <p>probanding</p>
+     <div class='login' id='login-screen'>
+      
+     <div class='head'>Logo y Nook-Nook </div>
+     <div class='body'>Ingreso de usuarios ojo con botones, registro en web</div>
+     <div class='footR'>Regristrate</div>
+
+     <div class='onlyScreen'>Solo pantalla </div>
+
+
      </div>
     
     `;
