@@ -105,6 +105,6 @@ signIn();
 
 
 
-import { myFunction } from './lib/index.js';
-myFunction();
+/*import { myFunction } from './lib/index.js';
+myFunction();*/
 export { signIn };
