@@ -19,11 +19,17 @@ const LoginMethod = {
     const pageLogin = `
      <div class='login' id='login-screen'>
       
+     <div class='onlyScreen'>
+      <img src="img/nooks.png" class="imgNooks">
+     </div>
+
+     <div class='wat'>
      <div class='head'>Logo y Nook-Nook </div>
      <div class='body'>Ingreso de usuarios ojo con botones, registro en web</div>
      <div class='footR'>Regristrate</div>
-
-     <div class='onlyScreen'>Solo pantalla </div>
+     </div>
+     
+     
 
 
      </div>
