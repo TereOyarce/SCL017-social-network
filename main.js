@@ -38,7 +38,10 @@ function observer() {
       console.log('Active usser');
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
+      show(user); 
+      let emailVerified= user.emailVerified;
       const uid = user.uid;
+      console.log(emailVerified);
       console.log(uid);
       // ...
     } else {
@@ -49,4 +52,11 @@ function observer() {
   });
 }
 observer();
+
+function show (user){ //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
+  //let user = user;
+  let content = document.getElementById('success');
+  if (user.emailVerified){
+  content.innerHTML = `<p>Usuario Verificado</p>`;}
+}
 
