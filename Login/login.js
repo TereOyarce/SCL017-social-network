@@ -25,10 +25,10 @@ const LoginMethod = {
         loginButton.classList.add('loginButton');
         loginButton.textContent = 'Iniciar Sesión';
         loginButton.addEventListener('click', () => {
-            userInput.value;
-            passInput.value;
+            const email = userInput.value;
+            const password = passInput.value;
 
-            normalAccess('', '');
+            normalAccess(email, password);
         });
 
         const googleLogin = document.createElement('button');
