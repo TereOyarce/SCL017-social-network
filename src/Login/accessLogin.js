@@ -1,11 +1,7 @@
 import classLogin from './login.js';
 
-const signButton = document.getElementById('signButton');
-/*const signButton = document.createElement('button');
-signButton.className = 'signButton';
-signButton.id = 'signButton';
-pageLogin.appenChild(signButton);
-contDivLogin.appendChild(pageLogin);*/
+//const signButton = document.getElementById('signButton');
+
 
 
 /*signButton.addEventListener('click', () => {
@@ -16,7 +12,11 @@ contDivLogin.appendChild(pageLogin);*/
 });          */
 
 // Google 
-const buttonGoogle = document.getElementById("googleButton");
-buttonGoogle.addEventListener('click' , ()=>{
-  classLogin.loginGoogle();
-});
+/*const buttonGoogle = document.getElementById("googleButton");
+buttonGoogle.addEventListener('click', () => {
+    classLogin.loginGoogle();
+});*/
+
+export const funciona = () => {
+    console.log('porfavor funciona u, u');
+}

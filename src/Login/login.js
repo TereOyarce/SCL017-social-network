@@ -1,31 +1,46 @@
+import { funciona } from './accessLogin.js';
+const divRoot = document.getElementById('root');
 const LoginMethod = {
-  signIn: (email, pass) => {
-    firebase.auth().signInWithEmailAndPassword(email, pass)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-      });
+    signIn: (email, pass) => {
+        firebase.auth().signInWithEmailAndPassword(email, pass)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                console.log(user);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode);
+                console.log(errorMessage);
+            });
 
-    
-      },
-     
-    
-  login: (divLogin) => {
-    const divRoot = document.getElementById('root');
-    const contDivLogin = document.createElement('div');
-    divRoot.appendChild(contDivLogin);
-    const resDiv = divLogin;
-    const pageLogin = 
-    
-    `
+
+    },
+
+
+    login: (divLogin) => {
+        const contDivLogin = document.createElement('div');
+        const divprueba = document.createElement('div');
+        divprueba.classList.add('divprueba');
+        divprueba.textContent = 'pruebita';
+        contDivLogin.appendChild(divprueba);
+        divRoot.appendChild(contDivLogin);
+        const botonprueba = document.createElement('button');
+        botonprueba.id = 'botonprueba';
+        botonprueba.textContent = 'botoncito';
+        contDivLogin.appendChild(botonprueba);
+        botonprueba.addEventListener('click', () => {
+            funciona()
+        })
+
+
+        // divRoot.appendChild(contDivLogin);
+        // const resDiv = divLogin;
+        //const pageLogin = 
+
+        /*`
      <div class='login' id='login-screen'>
       
      <div class='onlyScreen'>
@@ -44,42 +59,44 @@ Regístrate Aquí</a>
 
      </div>
     
-    `;
-    //contDivLogin.appendChild(pageLogin);
-    resDiv.innerHTML = pageLogin;
-    return resDiv;
-  }, 
+    `*/
+        ;
+        //contDivLogin.appendChild(pageLogin);
+        //resDiv.innerHTML = pageLogin;
+        return divLogin;
+    },
 
 
-  logOut: () => {
+    logOut: () => {
 
-  },
-  loginGoogle: () => {
-    //Acceso Google 
-    let provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        /** @type {firebase.auth.OAuthCredential} */
-        let credential = result.credential;
-    
-        // This gives you a Google Access Token. You can use it to access the Google API.
-       let token = credential.accessToken;
-        // The signed-in user info.
-        let user = result.user;
-        // ...
-      }).catch((error) => {
-        // Handle Errors here.
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        // The email of the user's account used.
-        let email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        let credential = error.credential;
-        // ...
-      });
+    },
+    loginGoogle: () => {
+        //Acceso Google 
+        let provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                /** @type {firebase.auth.OAuthCredential} */
+                let credential = result.credential;
 
-  }
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                let token = credential.accessToken;
+                // The signed-in user info.
+                let user = result.user;
+                // ...
+            }).catch((error) => {
+                console.log(error);
+                // Handle Errors here.
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                // The email of the user's account used.
+                let email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                let credential = error.credential;
+                // ...
+            });
+
+    }
 };
 
 
