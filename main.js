@@ -24,6 +24,8 @@ function observer() {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             console.log('Active usser');
+            console.log(user.email);
+            console.log(user.displayName);
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
             show(user);
@@ -31,8 +33,6 @@ function observer() {
             const uid = user.uid;
             console.log(emailVerified);
             console.log(uid);
-            console.log(user.email);
-            console.log(user.displayName);
             // ...
         } else {
             // User is signed out
