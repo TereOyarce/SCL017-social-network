@@ -1,5 +1,6 @@
 import { normalAccess } from './accessLogin.js';
 import { googleAccess } from './accessLogin.js';
+import { createElement } from '../method/MethodCreateElement.js';
 
 const divRoot = document.getElementById('root');
 
@@ -8,22 +9,18 @@ const LoginMethod = {
     login: (divLogin) => {
         const contDivLogin = document.createElement('div');
 
-        const userInput = document.createElement('input');
-        userInput.id = 'userInput';
-        userInput.classList.add('userInput');
-        userInput.setAttribute('type', 'email');
-        userInput.setAttribute('placeholder', 'Ingresa tu correo');
+        // Input Email
+        contDivLogin.appendChild(createElement('input', 'userInput', 'userInput', 'email', 'Ingresa tu correo', ''));
 
-        const passInput = document.createElement('input');
-        passInput.id = 'passInput';
-        passInput.classList.add('passInput');
-        passInput.setAttribute('type', 'password');
-        passInput.setAttribute('placeholder', 'Contraseña');
+        // Input password
+        contDivLogin.appendChild(createElement('input', 'passInput', 'passInput', 'password', 'Contraseña', ''));
 
-        const loginButton = document.createElement('button');
-        loginButton.id = 'loginButton';
-        loginButton.classList.add('loginButton');
-        loginButton.textContent = 'Iniciar Sesión';
+
+        //Boton Login
+        const loginButton = createElement('button', 'loginButton', 'loginButton', '', 'Iniciar Sesión', '');
+
+        contDivLogin.appendChild(loginButton);
+
         loginButton.addEventListener('click', () => {
             const email = userInput.value;
             const password = passInput.value;
@@ -31,21 +28,16 @@ const LoginMethod = {
             normalAccess(email, password);
         });
 
-        const googleLogin = document.createElement('button');
-        googleLogin.id = 'googleLogin';
-        googleLogin.classList.add('googleLogin');
-        googleLogin.textContent = 'Google';
+        //Login Google
+        const googleLogin = createElement('button', 'googleLogin', 'googleLogin', '', 'Iniciar Sesión con Google', '');
+        contDivLogin.appendChild(googleLogin);
         googleLogin.addEventListener('click', () => {
             googleAccess();
         });
 
 
-        contDivLogin.appendChild(userInput);
-        contDivLogin.appendChild(passInput);
-        contDivLogin.appendChild(loginButton);
-        contDivLogin.appendChild(googleLogin);
-
         divRoot.appendChild(contDivLogin);
+
 
 
 
