@@ -19,18 +19,6 @@ window.addEventListener('load', () => {
 const app = firebase.app();
 console.log(app);
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Observador
 function observer() {
   firebase.auth().onAuthStateChanged((user) => {
