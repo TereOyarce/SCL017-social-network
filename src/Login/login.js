@@ -4,26 +4,9 @@ import { googleAccess } from './accessLogin.js';
 const divRoot = document.getElementById('root');
 
 const LoginMethod = {
-    
+
     login: (divLogin) => {
         const contDivLogin = document.createElement('div');
-
-        const loginButton = document.createElement('button');
-        loginButton.id = 'loginButton';
-        loginButton.classList.add('loginButton');
-        loginButton.textContent = 'Iniciar Sesión';
-        loginButton.addEventListener('click', () => {
-          
-          normalAccess()
-        });
-
-        const googleLogin = document.createElement('button');
-        googleLogin.id = 'googleLogin';
-        googleLogin.classList.add('googleLogin');
-        googleLogin.textContent = 'Google';
-        googleLogin.addEventListener('click', () => {
-          googleAccess();
-        });
 
         const userInput = document.createElement('input');
         userInput.id = 'userInput';
@@ -37,6 +20,25 @@ const LoginMethod = {
         passInput.setAttribute('type', 'password');
         passInput.setAttribute('placeholder', 'Contraseña');
 
+        const loginButton = document.createElement('button');
+        loginButton.id = 'loginButton';
+        loginButton.classList.add('loginButton');
+        loginButton.textContent = 'Iniciar Sesión';
+        loginButton.addEventListener('click', () => {
+            userInput.value;
+            passInput.value;
+
+            normalAccess('', '');
+        });
+
+        const googleLogin = document.createElement('button');
+        googleLogin.id = 'googleLogin';
+        googleLogin.classList.add('googleLogin');
+        googleLogin.textContent = 'Google';
+        googleLogin.addEventListener('click', () => {
+            googleAccess();
+        });
+
 
         contDivLogin.appendChild(userInput);
         contDivLogin.appendChild(passInput);
@@ -44,8 +46,8 @@ const LoginMethod = {
         contDivLogin.appendChild(googleLogin);
 
         divRoot.appendChild(contDivLogin);
-        
-        
+
+
 
         return divLogin;
     },
