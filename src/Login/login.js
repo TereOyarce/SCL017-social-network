@@ -13,6 +13,7 @@ const LoginMethod = {
         loginButton.classList.add('loginButton');
         loginButton.textContent = 'Iniciar Sesión';
         loginButton.addEventListener('click', () => {
+          
           normalAccess()
         });
 
@@ -24,8 +25,21 @@ const LoginMethod = {
           googleAccess();
         });
 
+        const userInput = document.createElement('input');
+        userInput.id = 'userInput';
+        userInput.classList.add('userInput');
+        userInput.setAttribute('type', 'email');
+        userInput.setAttribute('placeholder', 'Ingresa tu correo');
+
+        const passInput = document.createElement('input');
+        passInput.id = 'passInput';
+        passInput.classList.add('passInput');
+        passInput.setAttribute('type', 'password');
+        passInput.setAttribute('placeholder', 'Contraseña');
 
 
+        contDivLogin.appendChild(userInput);
+        contDivLogin.appendChild(passInput);
         contDivLogin.appendChild(loginButton);
         contDivLogin.appendChild(googleLogin);
 
