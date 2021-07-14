@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+}
 
 .login{
     width: 100%;
@@ -47,3 +52,4 @@
     align-items: center;
     text-align: center;
 }
+
