@@ -1,14 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 a:link,
 a:visited,
 a:active {
     text-decoration: none;
 }
 
-.login{
+.login {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -17,19 +18,19 @@ a:active {
     background-size: cover;
 }
 
-.onlyScreen{
+.onlyScreen {
     width: 35%;
     height: 100vh;
     background-color: rgb(255, 255, 255);
 }
 
-.onlyScreen .imgNooks{
+.onlyScreen .imgNooks {
     padding: 50px;
     width: 28vw;
     margin-top: 45%;
 }
 
-.wat{
+.wat {
     width: 65%;
     display: flex;
     flex-direction: column;
@@ -37,15 +38,14 @@ a:active {
     padding: 8%;
 }
 
-.body{
+.body {
     height: 420px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.781);
     border-radius: 5%;
 }
 
-
-.temporal{
+.temporal {
     top: 25%;
     left: 62%;
     position: absolute;
@@ -53,3 +53,6 @@ a:active {
     text-align: center;
 }
 
+body {
+    background-color: antiquewhite;
+}
