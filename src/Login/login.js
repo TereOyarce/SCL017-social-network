@@ -6,86 +6,88 @@ const divRoot = document.getElementById('root');
 
 const LoginMethod = {
 
-  login: (divLogin) => {
-    const contDivLogin = document.createElement('div');
-
-    //DIV IZQUIERDO
-    const leftDiv = document.createElement('div');
-    leftDiv.classList.add('leftDiv');
-
-    //imagen
-    leftDiv.appendChild(createElement('img', '', 'imgLeft', '', '', './img/houseac.png'));
-
-    contDivLogin.appendChild(leftDiv);
-
-    //DIV DERECHO
-    const rightDiv = document.createElement('div');
-    rightDiv.classList.add('rightDiv');
-
-    //Head Div
-    const headDiv = createElement('div');
-    headDiv.classList.add('headDiv');
-
-    //logo
-    headDiv.appendChild(createElement('img', '', 'logo', '', '', './img/logo.png'))
-
-    //nook-Nook
-    const logo = document.createElement('p');
-    logo.classList.add('logo');
-    logo.textContent = 'Nook-Nook';
-    headDiv.appendChild(logo);
-
-    rightDiv.appendChild(headDiv);
-
-    //Mid Div
-    const midDiv = createElement('div');
-    midDiv.classList.add('midDiv');
-
-    // input Email
-    midDiv.appendChild(createElement('input', 'userInput', 'userInput', 'email', 'Ingresa tu correo', ''));
-
-    // input password
-    midDiv.appendChild(createElement('input', 'passInput', 'passInput', 'password', 'Contraseña', ''));
+    login: (divLogin) => {
+        const contDivLogin = document.createElement('div');
 
 
-    //boton Login
-    const loginButton = createElement('button', 'loginButton', 'loginButton', '', 'Iniciar Sesión', '');
+        //DIV IZQUIERDO
+        const leftDiv = document.createElement('div');
+        leftDiv.classList.add('leftDiv');
 
-    midDiv.appendChild(loginButton);
+        //imagen
+        leftDiv.appendChild(createElement('img', '', 'imgLeft', '', '', './img/houseac.png'));
 
-    loginButton.addEventListener('click', () => {
-      const email = userInput.value;
-      const password = passInput.value;
-      normalAccess(email, password);
-    });
+        contDivLogin.appendChild(leftDiv);
 
-    //login Google
-    const googleLogin = createElement('button', 'googleLogin', 'googleLogin', '', 'Iniciar Sesión con Google', '');
+        //DIV DERECHO
+        const rightDiv = document.createElement('div');
+        rightDiv.classList.add('rightDiv');
 
-    midDiv.appendChild(googleLogin);
+        //Head Div
+        const headDiv = createElement('div');
+        headDiv.classList.add('headDiv');
 
-    googleLogin.addEventListener('click', () => {
-      googleAccess();
-    });
+        //logo
+        headDiv.appendChild(createElement('img', '', 'logo', '', '', './img/logo.png'))
 
-    contDivLogin.appendChild(midDiv);
+        //nook-Nook
+        const logo = document.createElement('p');
+        logo.classList.add('logo');
+        logo.textContent = 'Nook-Nook';
+        headDiv.appendChild(logo);
+        rightDiv.appendChild(headDiv);
 
-    //Foot Div
-    const footDiv = createElement('footer');
+        //Termino Head Div//
 
-    var element = document.createElement("a");
-    element.setAttribute("href", 'www.google.cl');
-    element.innerHTML = "REGISTRATE AQUÍ";
+        //Mid Div
+        const midDiv = createElement('div');
+        midDiv.classList.add('midDiv');
+        // input Email
+        midDiv.appendChild(createElement('input', 'userInput', 'userInput', 'email', 'Ingresa tu correo', ''));
 
-    footDiv.appendChild(element);
+        // input password
+        midDiv.appendChild(createElement('input', 'passInput', 'passInput', 'password', 'Contraseña', ''));
 
-    rightDiv.appendChild(footDiv);
 
-    contDivLogin.appendChild(rightDiv);
+        //boton Login
+        const loginButton = createElement('button', 'loginButton', 'loginButton', '', 'Iniciar Sesión', '');
 
-    divRoot.appendChild(contDivLogin);
-    return divLogin;
-  },
+        midDiv.appendChild(loginButton);
+
+        loginButton.addEventListener('click', () => {
+            const email = userInput.value;
+            const password = passInput.value;
+            normalAccess(email, password);
+        });
+
+        //login Google
+        const googleLogin = createElement('button', 'googleLogin', 'googleLogin', '', 'Iniciar Sesión con Google', '');
+
+        midDiv.appendChild(googleLogin);
+
+        googleLogin.addEventListener('click', () => {
+            googleAccess();
+        });
+        rightDiv.appendChild(midDiv);
+        //Termino Mid Div//
+
+        //Foot Div
+        const footDiv = createElement('footer');
+
+        var element = document.createElement("a");
+        element.setAttribute("href", '#');
+        element.innerHTML = "¿No tienes cuenta? <br>Regístrate aquí";
+
+
+
+        rightDiv.appendChild(footDiv);
+        footDiv.appendChild(element);
+
+        contDivLogin.appendChild(rightDiv);
+
+        divRoot.appendChild(contDivLogin);
+        return divLogin;
+    },
 };
 
 
