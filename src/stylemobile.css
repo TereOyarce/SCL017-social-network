@@ -1,33 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
-
-@media (max-width: 770px){
-
-*{
-    background-color: #FFF9E5;
+:root {
+    --milkMedium: #f8eebc;
+    --milkLight: #fff9e5;
+    --brown: #786951;
+    --greenMedium: #88c9a1;
+    --green: #68b893;
+    --greenLight: #a4d4a2;
+    --softPink: #febdc3;
+    --pink: #ef758a;
+    --salmon: #ff7c69;
+    --lightBlue: #7cc9c3;
+    --mint: #8ecfca;
+    --turquoise: #017c74;
+    --yellow: #f7d359;
+    --lightYellow: #fcea64;
 }
 
-.login{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@font-face {
+    font-family: 'FinkHeavy';
+    src: local('./resources/1579-fink-heavy-1361523207.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }
 
-.head{
-    text-align: center;
+@font-face {
+    font-family: 'nintendoP_Humming-E_002pr';
+    src: local('./resources/nintendoP_Humming-E_002pr.otf') format('opentype');
+    font-style: normal;
+    font-weight: normal;
 }
 
-.logo{
-    height: 80px;
-    width: 80px;
-    margin: 5px auto 0 auto;
-}
-
-.head h1{
-    font-size: 30px;
-    font-family: 'Finger Paint', cursive;
-    color: #68B893;
-    margin: 0px 0;
-    
-}
-
+@media (max-width: 1024px) {
+    body {
+        background-image: url(./img/background.jpg);
+        background-repeat: repeat;
+        background-size: cover;
+        position: relative;
+    }
+    .leftDiv {
+        display: none;
+    }
+    .headDiv {
+        margin: 0 auto;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        justify-content: center;
+        border-radius: 100%;
+    }
+    .logo {
+        width: 30%;
+    }
+    .nookNook {
+        font-family: 'FinkHeavy';
+        color: var(--green);
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+    .midDiv {
+        background-color: var(--pink);
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        padding: 1rem;
+        margin: 0 auto;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 2rem;
+        height: 20rem;
+    }
+    .textMid {
+        margin-top: 0.5rem;
+        font-family: 'FinkHeavy';
+        font-size: x-large;
+        color: var(--milkMedium);
+    }
+    .userInput,
+    .passInput {
+        text-decoration: none;
+        appearance: none;
+        width: 70%;
+        border: 0;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.3rem;
+        color: var(--green);
+    }
+     ::placeholder {
+        color: var(--green);
+    }
+    .userInput {
+        margin-top: 1rem;
+    }
+    .loginButton {
+        text-decoration: none;
+        appearance: none;
+        width: 60%;
+        padding: 1rem;
+        border: none;
+        text-transform: uppercase;
+        font-family: 'nintendoP_Humming-E_002pr';
+        background-color: var(--lightBlue);
+        color: var(--milkLight);
+        border-radius: 0.5rem;
+    }
+    .loginButton:hover {
+        background-color: var(--milkLight);
+        color: var(--mint);
+    }
+    .googleLogin {
+        display: inline-block;
+        background: skyblue;
+        color: var(--milkLight);
+        width: auto;
+        border-radius: 5px;
+        text-decoration: none;
+        appearance: none;
+        border: none;
+        padding: 0.8rem;
+        font-family: 'nintendoP_Humming-E_002pr';
+        display: inline-block;
+        white-space: nowrap;
+        font-size: x-small;
+    }
+    .googleLogin:hover {
+        color: skyblue;
+        background-color: var(--milkLight);
+    }
+    footer {
+        background-color: var(--lightBlue);
+        margin-top: 2rem;
+    }
+    footer a {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 0.5rem;
+        color: var(--milkMedium);
+    }
+    footer a:hover {
+        color: var(--salmon);
+    }
 }
