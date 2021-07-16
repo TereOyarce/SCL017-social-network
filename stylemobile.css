@@ -45,20 +45,26 @@
         align-content: center;
         text-align: center;
         padding: 1.5rem;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
         justify-content: center;
         border-radius: 100%;
     }
-    .logo {
+   .headDiv .logo {
         width: 30%;
-    }
-    .nookNook {
+        
+   }
+  .rightDiv  .nook {
         font-family: 'FinkHeavy';
         color: var(--green);
         font-size: xx-large;
         font-weight: bolder;
+        text-shadow: none;
     }
+.rightDiv{
+    width: auto;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+}
     .midDiv {
         background-color: var(--pink);
         display: flex;
@@ -71,13 +77,13 @@
         border-radius: 2rem;
         height: 20rem;
     }
-    .textMid {
+    .midDiv .welcome {
         margin-top: 0.5rem;
         font-family: 'FinkHeavy';
         font-size: x-large;
         color: var(--milkMedium);
     }
-    .userInput,
+    .midDiv .userInput,
     .passInput {
         text-decoration: none;
         appearance: none;
@@ -90,27 +96,30 @@
     }
      ::placeholder {
         color: var(--green);
+        opacity: 70%;
     }
     .userInput {
         margin-top: 1rem;
     }
-    .loginButton {
+    .midDiv .loginButton {
         text-decoration: none;
         appearance: none;
         width: 60%;
-        padding: 1rem;
+        height: 3rem;
         border: none;
         text-transform: uppercase;
         font-family: 'nintendoP_Humming-E_002pr';
         background-color: var(--lightBlue);
         color: var(--milkLight);
         border-radius: 0.5rem;
+        font-size: 0.8rem;
+        margin: 0 auto;
     }
     .loginButton:hover {
         background-color: var(--milkLight);
         color: var(--mint);
     }
-    .googleLogin {
+    .midDiv .googleLogin {
         display: inline-block;
         background: skyblue;
         color: var(--milkLight);
@@ -119,31 +128,48 @@
         text-decoration: none;
         appearance: none;
         border: none;
-        padding: 0.8rem;
+        padding: 0.6rem;
         font-family: 'nintendoP_Humming-E_002pr';
         display: inline-block;
         white-space: nowrap;
         font-size: x-small;
+        height: 2rem;
+        
     }
     .googleLogin:hover {
         color: skyblue;
         background-color: var(--milkLight);
     }
-    footer {
-        background-color: var(--lightBlue);
-        margin-top: 2rem;
+    .footDiv {
+        background-color: var(--milkMedium);
+        margin: 0 auto;
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+        border-radius: 0.5rem;
+        
+       
     }
-    footer a {
+    .footDiv .element {
         display: flex;
+        flex-direction: column;
         text-align: center;
         align-items: center;
         align-content: center;
         justify-content: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         padding: 0.5rem;
         color: var(--milkMedium);
     }
     footer a:hover {
         color: var(--salmon);
     }
+}
+.element p{
+    font-size: 15px;
+    color: #017C74;
+}
+
+.element h4{
+    font-size: 20px;
+    color: #FF7C69;
 }
