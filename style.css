@@ -14,9 +14,8 @@ a:active {
 }
 
 body {
-    background-color: antiquewhite;
-    background-color: #FFF9E5;
-    background-image: url('img/bck2.jpg');
+    
+    background-image: url('./img/bgoppacity.png');
     background-size: contain;
 }
 
@@ -30,11 +29,11 @@ body {
 .leftDiv {
     width: 35%;
     height: 100vh;
-    background-color: #FFF9E5;
+    background-color: #ffffff;
 }
 
 .leftDiv .imgLeft {
-    padding: 35px;
+    padding: 2.188rem;
     width: 31vw;
     margin-top: 40%;
 }
@@ -45,7 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-gap: 30px;
+    grid-gap: 1.8rem;
 }
 
 .headDiv{
@@ -55,13 +54,12 @@ body {
 }
 
 .headDiv .logo{
-    
-    width: 130px;
+     width: 8.1rem;
 }
 
 .headDiv .nook{
-    font-family: 'Finger Paint';
-    font-size: 40px;
+    font-family: 'FinkHeavy';
+    font-size: 55px;
     font-weight: bold;
     color: #68B893;
     text-shadow: 3px 3px #3b3b3b94;
@@ -70,10 +68,13 @@ body {
 .midDiv {
     display: flex;
     flex-direction: column;
-    grid-gap: 15px;
-    height: 220px;
-    width: 500px;
-    background-color: #FFF9E5;
+    grid-gap: 1rem;
+    height: 13.7rem;
+    width: 31.2rem;
+    background-color: white;
+    -webkit-box-shadow: 0px 14px 5px -4px rgba(195,199,199,1);
+-moz-box-shadow: 0px 14px 5px -4px rgba(195,199,199,1);
+box-shadow: 0px 14px 5px -4px rgba(195,199,199,1);
     border-radius: 55px;
     align-items: center;
     text-align: center;
@@ -81,8 +82,8 @@ body {
 }
 
 .midDiv .welcome{
-    font-family: 'Finger Paint';
-    font-size: 25px;
+    font-family: 'FinkHeavy';
+    font-size: 35px;
     color: #017C74;
 }
 
@@ -93,10 +94,11 @@ body {
     color: rgba(0, 0, 0, 0.507);
     text-align: center;
     height: 25px;
-    width: 250px;
+    width: 15.6rem;
     border: 1px solid rgba(87, 87, 87, 0.63);
     border-radius: 20px;
     outline: none;
+    
 }
 
 ::placeholder{
@@ -110,11 +112,12 @@ body {
     color: rgb(248, 248, 248);
     background-color: #8ECFCA;
     text-align: center;
-    height: 30px;
-    width: 200px;
+    height: 1.8rem;
+    width: 12.5rem;
     border: 1px solid #8ECFCA;
     border-radius: 20px;
     outline: none;
+    cursor: pointer;
 }
 
 .loginButton:hover{
@@ -126,15 +129,16 @@ body {
     font-weight: bold;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.904);
-    width: 190px;
-    height: 25px;
+    width: 11.8rem;
+    height: 1.5rem;
     border: 1px solid #66626298;
     outline: none;
     text-align: center;
     background-image: url('img/googleicon.png');
     background-repeat: no-repeat;
-    background-size: 20px;
+    background-size: 1.2rem;
     background-position: left;
+    cursor: pointer;
 }
 
 .googleLogin:hover{
