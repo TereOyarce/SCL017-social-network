@@ -8,6 +8,7 @@ const LoginMethod = {
 
     login: (divLogin) => {
         const contDivLogin = document.createElement('div');
+        contDivLogin.classList.add('contDiv');
 
 
         //DIV IZQUIERDO
@@ -31,10 +32,11 @@ const LoginMethod = {
         headDiv.appendChild(createElement('img', '', 'logo', '', '', './img/logo.png'))
 
         //nook-Nook
-        const logo = document.createElement('p');
-        logo.classList.add('logo');
-        logo.textContent = 'Nook-Nook';
-        headDiv.appendChild(logo);
+        const nook = document.createElement('p');
+        nook.classList.add('nook');
+        nook.textContent = 'Nook-Nook';
+
+        headDiv.appendChild(nook);
         rightDiv.appendChild(headDiv);
 
         //Termino Head Div//
@@ -42,6 +44,13 @@ const LoginMethod = {
         //Mid Div
         const midDiv = createElement('div');
         midDiv.classList.add('midDiv');
+
+        //Bienvenido
+        const welcome = document.createElement('p');
+        welcome.classList.add('welcome');
+        welcome.textContent = 'Bienvenid@';
+        midDiv.appendChild(welcome);
+
         // input Email
         midDiv.appendChild(createElement('input', 'userInput', 'userInput', 'email', 'Ingresa tu correo', ''));
 
@@ -73,10 +82,12 @@ const LoginMethod = {
 
         //Foot Div
         const footDiv = createElement('footer');
+        footDiv.classList.add('footDiv');
 
         var element = document.createElement("a");
+        element.classList.add('element')
         element.setAttribute("href", '#');
-        element.innerHTML = "¿No tienes cuenta? <br>Regístrate aquí";
+        element.innerHTML = "<p>¿No tienes cuenta?</p> <h4>¡REGÍSTRATE AQUÍ!</h4>";
 
 
 
