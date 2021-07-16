@@ -8,7 +8,7 @@ const LoginMethod = {
 
     login: (divLogin) => {
         const contDivLogin = document.createElement('div');
-        contDivLogin.classList.add('contDiv');
+        contDivLogin.classList.add('contDivLogin');
 
 
         //DIV IZQUIERDO
