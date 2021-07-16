@@ -32,6 +32,7 @@ const LoginMethod = {
         headDiv.appendChild(createElement('img', '', 'logo', '', '', './img/logo.png'))
 
         //nook-Nook
+        
         const nook = document.createElement('p');
         nook.classList.add('nook');
         nook.textContent = 'Nook-Nook';
@@ -45,6 +46,7 @@ const LoginMethod = {
         const midDiv = createElement('div');
         midDiv.classList.add('midDiv');
 
+      
         //Bienvenido
         const welcome = document.createElement('p');
         welcome.classList.add('welcome');
