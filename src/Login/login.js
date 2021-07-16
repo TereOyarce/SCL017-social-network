@@ -2,6 +2,9 @@ import { normalAccess } from './accessLogin.js';
 import { googleAccess } from './accessLogin.js';
 import { createElement } from '../method/MethodCreateElement.js';
 
+
+
+
 const divRoot = document.getElementById('root');
 
 const LoginMethod = {
@@ -32,7 +35,7 @@ const LoginMethod = {
         headDiv.appendChild(createElement('img', '', 'logo', '', '', './img/logo.png'))
 
         //nook-Nook
-        
+
         const nook = document.createElement('p');
         nook.classList.add('nook');
         nook.textContent = 'Nook-Nook';
@@ -46,7 +49,7 @@ const LoginMethod = {
         const midDiv = createElement('div');
         midDiv.classList.add('midDiv');
 
-      
+
         //Bienvenido
         const welcome = document.createElement('p');
         welcome.classList.add('welcome');
@@ -86,10 +89,11 @@ const LoginMethod = {
         const footDiv = createElement('footer');
         footDiv.classList.add('footDiv');
 
-        var element = document.createElement("a");
-        element.classList.add('element')
-        element.setAttribute("href", '#');
+        const element = document.createElement("button");
+        element.classList.add('element');
+        element.id = 'elementR';
         element.innerHTML = "<p>¿No tienes cuenta?</p> <h4>¡REGÍSTRATE AQUÍ!</h4>";
+
 
 
 
@@ -99,7 +103,10 @@ const LoginMethod = {
         contDivLogin.appendChild(rightDiv);
 
         divRoot.appendChild(contDivLogin);
+
         return divLogin;
+
+
     },
 };
 

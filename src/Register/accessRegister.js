@@ -1,10 +1,32 @@
-import classRegister from './register.js';
 
-const buttonR = document.getElementById('buttonRegister');
+ export const register= (emailRegister, passRegister, sucess) => {
+      const sucessCheck = sucess;
 
-/*buttonR.addEventListener('click', () => {
-  const email = document.getElementById('email2').value;
-  const password = document.getElementById('password2').value;
-  const success = document.getElementById('success');
-  classRegister.register(email, password, success);
-});*/
+      function check(success) {
+          const succCheck = success;
+          succCheck.innerHTML = '<p>Registro exitoso, verificar email</p>';
+          firebase.auth().currentUser.sendEmailVerification()
+              .then(() => {
+                  // Email verification sent!
+                  // ...
+              });
+      }
+
+      firebase.auth().createUserWithEmailAndPassword(emailRegister, passRegister)
+          .then(() => {
+              check(sucessCheck);
+          })
+          .then((userCredential) => {
+              // Signed in
+              const user = userCredential.user;
+              console.log(user);
+              // ...
+          })
+          .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              // ..
+              console.log(errorCode);
+              console.log(errorMessage);
+          });
+  };
