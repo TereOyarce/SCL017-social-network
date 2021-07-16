@@ -8,6 +8,7 @@ const LoginMethod = {
 
     login: (divLogin) => {
         const contDivLogin = document.createElement('div');
+        contDivLogin.classList.add('contDivLogin');
 
 
         //DIV IZQUIERDO
@@ -32,7 +33,7 @@ const LoginMethod = {
 
         //nook-Nook
         const logo = document.createElement('p');
-        logo.classList.add('logo');
+        logo.classList.add('nookNook');
         logo.textContent = 'Nook-Nook';
         headDiv.appendChild(logo);
         rightDiv.appendChild(headDiv);
@@ -42,6 +43,11 @@ const LoginMethod = {
         //Mid Div
         const midDiv = createElement('div');
         midDiv.classList.add('midDiv');
+
+        const textMid = createElement('p');
+        textMid.classList.add('textMid');
+        textMid.textContent = 'Bienvenido!'
+        midDiv.appendChild(textMid);
         // input Email
         midDiv.appendChild(createElement('input', 'userInput', 'userInput', 'email', 'Ingresa tu correo', ''));
 
