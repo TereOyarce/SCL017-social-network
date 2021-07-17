@@ -1,7 +1,7 @@
 // Ingreso de usuarios ya registrados
 import { changeRoute } from './router.js';
 import {} from './Login/accessLogin.js';
-import {} from './Register/accessRegister.js';
+import {} from './Login/accessRegister.js';
 
 const init = () => {
 
@@ -43,10 +43,10 @@ function observer() {
 }
 observer();
 
-function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
+/*function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
     //let user = user;
     let content = document.getElementById('success');
     if (user.emailVerified) {
         content.innerHTML = `<p>Usuario Verificado</p>`;
     }
-}
+}*/
