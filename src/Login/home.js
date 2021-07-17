@@ -1,6 +1,10 @@
 import { normalAccess } from './accessLogin.js';
 import { googleAccess } from './accessLogin.js';
 import { createElement } from '../method/MethodCreateElement.js';
+import { register } from './accessRegister.js';
+
+
+
 
 const divRoot = document.getElementById('root');
 
@@ -32,7 +36,7 @@ const LoginMethod = {
         headDiv.appendChild(createElement('img', '', 'logo', '', '', './img/logo.png'))
 
         //nook-Nook
-        
+
         const nook = document.createElement('p');
         nook.classList.add('nook');
         nook.textContent = 'Nook-Nook';
@@ -46,7 +50,7 @@ const LoginMethod = {
         const midDiv = createElement('div');
         midDiv.classList.add('midDiv');
 
-      
+
         //Bienvenido
         const welcome = document.createElement('p');
         welcome.classList.add('welcome');
@@ -86,11 +90,10 @@ const LoginMethod = {
         const footDiv = createElement('footer');
         footDiv.classList.add('footDiv');
 
-        var element = document.createElement("a");
-        element.classList.add('element')
-        element.setAttribute("href", '#');
+        const element = document.createElement("button");
+        element.classList.add('element');
+        element.id = 'elementR';
         element.innerHTML = "<p>¿No tienes cuenta?</p> <h4>¡REGÍSTRATE AQUÍ!</h4>";
-
 
 
         rightDiv.appendChild(footDiv);
@@ -99,10 +102,58 @@ const LoginMethod = {
         contDivLogin.appendChild(rightDiv);
 
         divRoot.appendChild(contDivLogin);
-        return divLogin;
-    },
+
+
+        //Modal Register
+        const modalC = document.createElement('div');
+        modalC.id = 'modalC';
+        modalC.className = 'modalC';
+
+        const modal = document.createElement('div');
+        modal.clasName = 'modal';
+
+        const emailR = createElement('input', 'emailR', 'emailR', 'email', 'Ingrese correo', ''); //Input correo
+        const passR = createElement('input', 'passR', 'passR', 'password', 'contraseña', ''); // Input clave
+        const registerB = createElement('button', 'registerB', 'registerB', '', 'Registrarse', ''); // boton registrarse
+        const btnX = createElement('button', 'btnX', 'btnX', '', 'cerrar', ''); // boton cerrar modal
+        modal.appendChild(emailR);
+        modal.appendChild(passR);
+        modal.appendChild(registerB);
+        modal.appendChild(btnX);
+        modalC.appendChild(modal);
+        rightDiv.appendChild(modalC);
+
+
+        elementR.addEventListener('click', () => {
+            modalC.classList.add('show');
+        });
+        btnX.addEventListener('click', () => {
+            modalC.classList.remove('show');
+        });
+
+        const success = document.createElement('div');
+        success.id = 'success';
+
+        modal.appendChild(success);
+        registerB.addEventListener('click', () => {
+            const email = document.getElementById('emailR').value;
+            const password = document.getElementById('passR').value;
+            const check = document.getElementById('success');
+
+            register(email, password, check);
+
+
+            return divLogin;
+
+
+        });
+
+
+
+
+
+
+    }
+
 };
-
-
-
 export default LoginMethod;
