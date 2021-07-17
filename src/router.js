@@ -8,10 +8,11 @@ const showTemplate = (hash) => {
 
     switch (hash) {
         case '#/':
-            containerRoot.appendChild(LoginMethod.login(divLogin));
+            containerRoot == LoginMethod.login(divLogin);
+
             break;
         case '#/login':
-            containerRoot.appendChild(LoginMethod.login(divLogin));
+            containerRoot == LoginMethod.login(divLogin);
             break;
 
             /*default:

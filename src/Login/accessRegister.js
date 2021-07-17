@@ -27,5 +27,6 @@ export const register = (emailRegister, passRegister, sucess) => {
             // ..
             console.log(errorCode);
             console.log(errorMessage);
+            alert(errorMessage);
         });
 };
