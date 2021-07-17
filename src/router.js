@@ -10,11 +10,12 @@ export const showTemplate = (hash) => {
     switch (hash) {
         case '#/':
             containerRoot == LoginMethod.login(divLogin);
-
             break;
+
         case '#/login':
             containerRoot == LoginMethod.login(divLogin);
             break;
+            
         case '#/wall':
             containerRoot == wall.feed(divLogin);
             break;
