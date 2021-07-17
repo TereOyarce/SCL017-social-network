@@ -8,7 +8,7 @@ export const showTemplate = (hash) => {
     containerRoot.innerHTML = '';
 
     switch (hash) {
-        case '#':
+        case '#/':
             containerRoot == LoginMethod.login(divLogin);
 
             break;
@@ -28,7 +28,7 @@ export const showTemplate = (hash) => {
     }
 };
 
-/*export const changeRoute = (hash) => {
+export const changeRoute = (hash) => {
     if (hash === '#/') {
         return showTemplate(hash);
     }
@@ -40,4 +40,4 @@ export const showTemplate = (hash) => {
     }
     return showTemplate(hash);
     //return '';
-};*/
+};

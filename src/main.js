@@ -1,20 +1,20 @@
 // Ingreso de usuarios ya registrados
-import { showTemplate } from './router.js';
-import {} from './Login/accessLogin.js';
+import { showTemplate, changeRoute } from './router.js';
+import { googleAccess } from './Login/accessLogin.js';
 import {} from './Login/accessRegister.js';
 import wall from './Wall/wall.js'
 
 const init = () => {
 
     window.addEventListener('hashchange', () => {
-        showTemplate(window.location.hash);
+        changeRoute(window.location.hash);
     });
-
+    window.location.hash = '#/login';
 };
 
 window.addEventListener('load', () => {
-    showTemplate(window.location.hash);
-    //init();
+    changeRoute(window.location.hash);
+    init();
 });
 
 const app = firebase.app();
@@ -47,8 +47,8 @@ observer();
 
 function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
     //let user = user;
-    let content = document.getElementById('success');
-    if (user.emailVerified) {
+
+    if (user.emailVerified && googleAccess) {
         showTemplate('#/wall');
     }
 }
