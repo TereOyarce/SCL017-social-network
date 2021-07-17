@@ -1,6 +1,5 @@
 const root = document.getElementById('root');
 const wall = {
-
     feed: (divFeed) => {
         console.log('este es el muro');
         const div = document.createElement('div');
