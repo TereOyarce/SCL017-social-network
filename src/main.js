@@ -1,7 +1,8 @@
 // Ingreso de usuarios ya registrados
-import { changeRoute } from './router.js';
-import {} from './Login/accessLogin.js';
+import { showTemplate, changeRoute } from './router.js';
+import { googleAccess } from './Login/accessLogin.js';
 import {} from './Login/accessRegister.js';
+import wall from './Wall/wall.js'
 
 const init = () => {
 
@@ -39,14 +40,15 @@ function observer() {
             console.log('Inactive usser');
             // ...
         }
+
     });
 }
 observer();
 
-/*function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
+function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
     //let user = user;
-    let content = document.getElementById('success');
-    if (user.emailVerified) {
-        content.innerHTML = `<p>Usuario Verificado</p>`;
+
+    if (user.emailVerified && googleAccess) {
+        showTemplate('#/wall');
     }
-}*/
+}
