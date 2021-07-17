@@ -1,19 +1,20 @@
 // Ingreso de usuarios ya registrados
-import { changeRoute } from './router.js';
+import { showTemplate } from './router.js';
 import {} from './Login/accessLogin.js';
 import {} from './Login/accessRegister.js';
+import wall from './Wall/wall.js'
 
 const init = () => {
 
     window.addEventListener('hashchange', () => {
-        changeRoute(window.location.hash);
+        showTemplate(window.location.hash);
     });
-    window.location.hash = '#/login';
+
 };
 
 window.addEventListener('load', () => {
-    changeRoute(window.location.hash);
-    init();
+    showTemplate(window.location.hash);
+    //init();
 });
 
 const app = firebase.app();
@@ -39,14 +40,15 @@ function observer() {
             console.log('Inactive usser');
             // ...
         }
+
     });
 }
 observer();
 
-/*function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
+function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
     //let user = user;
     let content = document.getElementById('success');
     if (user.emailVerified) {
-        content.innerHTML = `<p>Usuario Verificado</p>`;
+        showTemplate('#/wall');
     }
-}*/
+}
