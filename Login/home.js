@@ -1,6 +1,7 @@
 import { normalAccess } from './accessLogin.js';
 import { googleAccess } from './accessLogin.js';
 import { createElement } from '../method/MethodCreateElement.js';
+import { register } from './accessRegister.js';
 
 
 
@@ -95,8 +96,6 @@ const LoginMethod = {
         element.innerHTML = "<p>¿No tienes cuenta?</p> <h4>¡REGÍSTRATE AQUÍ!</h4>";
 
 
-
-
         rightDiv.appendChild(footDiv);
         footDiv.appendChild(element);
 
@@ -104,12 +103,57 @@ const LoginMethod = {
 
         divRoot.appendChild(contDivLogin);
 
-        return divLogin;
+
+        //Modal Register
+        const modalC = document.createElement('div');
+        modalC.id = 'modalC';
+        modalC.className = 'modalC';
+
+        const modal = document.createElement('div');
+        modal.clasName = 'modal';
+
+        const emailR = createElement('input', 'emailR', 'emailR', 'email', 'Ingrese correo', ''); //Input correo
+        const passR = createElement('input', 'passR', 'passR', 'password', 'contraseña', ''); // Input clave
+        const registerB = createElement('button', 'registerB', 'registerB', '', 'Registrarse', ''); // boton registrarse
+        const btnX = createElement('button', 'btnX', 'btnX', '', 'cerrar', ''); // boton cerrar modal
+        modal.appendChild(emailR);
+        modal.appendChild(passR);
+        modal.appendChild(registerB);
+        modal.appendChild(btnX);
+        modalC.appendChild(modal);
+        rightDiv.appendChild(modalC);
 
 
-    },
+        elementR.addEventListener('click', () => {
+            modalC.classList.add('show');
+        });
+        btnX.addEventListener('click', () => {
+            modalC.classList.remove('show');
+        });
+
+        const success = document.createElement('div');
+        success.id = 'success';
+
+        modal.appendChild(success);
+        registerB.addEventListener('click', () => {
+            const email = document.getElementById('emailR').value;
+            const password = document.getElementById('passR').value;
+            const check = document.getElementById('success');
+
+            register(email, password, check);
+
+
+            return divLogin;
+
+
+        });
+
+
+
+
+
+
+    }
+
 };
-
-
-
 export default LoginMethod;

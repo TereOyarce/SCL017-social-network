@@ -1,7 +1,3 @@
-import classLogin from './login.js';
-import { createElement } from '../method/MethodCreateElement.js';
-
-
 //Iniciar Sesión
 export const normalAccess = (email, pass) => {
     firebase.auth().signInWithEmailAndPassword(email, pass)

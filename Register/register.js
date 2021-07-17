@@ -1,4 +1,4 @@
-import { createElement } from '../method/MethodCreateElement.js';
+/*import { createElement } from '../method/MethodCreateElement.js';
 import { register } from './accessRegister.js';
 import { elementR } from './login.js';
 
@@ -14,9 +14,17 @@ export const registerMethod = {
         const modal = document.createElement('div');
         modal.clasName = 'modal';
 
-        modal.appendChild(createElement('input', 'emailR', 'emailR', 'email', 'Ingrese correo', '')); //Input correo
-        modal.appendChild(createElement('input', 'passR', 'passR', 'password', 'contraseña', '')); // Input clave
+        const emailR = createElement('input', 'emailR', 'emailR', 'email', 'Ingrese correo', ''); //Input correo
+        const passR = createElement('input', 'passR', 'passR', 'password', 'contraseña', ''); // Input clave
+        const registerB = createElement('button', 'registerB', 'registerB', '', 'Registrarse', ''); // boton registrarse
+        const btnX = createElement('button', 'btnX', 'btnX', '', 'cerrar', ''); // boton cerrar modal
+        modal.appendChild(emailR);
+        modal.appendChild(passR);
+        modal.appendChild(registerB);
+        modal.appendChild(btnX);
         modalC.appendChild(modal);
+
+
 
 
         const btnR = elementR;
@@ -48,4 +56,4 @@ export const registerMethod = {
 
 
     }
-};
+};*/
