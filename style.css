@@ -141,6 +141,11 @@ a:active {
 }
 
 .footDiv .element {
+    appearance: none;
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+    border: none;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
 }
