@@ -14,7 +14,6 @@ a:active {
 }
 
 body {
-    
     background-image: url('./img/bgoppacity.png');
     background-size: contain;
 }
@@ -23,7 +22,6 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    
 }
 
 .leftDiv {
@@ -54,7 +52,10 @@ body {
 }
 
 .headDiv .logo{
+
      width: 25%;
+
+  
 }
 
 .headDiv .nook{
@@ -73,8 +74,8 @@ body {
     width: 31.2rem;
     background-color: white;
     -webkit-box-shadow: 0px 14px 5px -4px rgba(195,199,199,1);
--moz-box-shadow: 0px 14px 5px -4px rgba(195,199,199,1);
-box-shadow: 0px 14px 5px -4px rgba(195,199,199,1);
+    -moz-box-shadow: 0px 14px 5px -4px rgba(195,199,199,1);
+    box-shadow: 0px 14px 5px -4px rgba(195,199,199,1);
     border-radius: 55px;
     align-items: center;
     text-align: center;
