@@ -115,7 +115,7 @@ const LoginMethod = {
         const emailR = createElement('input', 'emailR', 'emailR', 'email', 'Ingrese correo', ''); //Input correo
         const passR = createElement('input', 'passR', 'passR', 'password', 'contraseña', ''); // Input clave
         const registerB = createElement('button', 'registerB', 'registerB', '', 'Registrarse', ''); // boton registrarse
-        const btnX = createElement('button', 'btnX', 'btnX', '', 'cerrar', ''); // boton cerrar modal
+        const btnX = createElement('button', 'btnX', 'btnX', '', '+', ''); // boton cerrar modal
         modal.appendChild(emailR);
         modal.appendChild(passR);
         modal.appendChild(registerB);

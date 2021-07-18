@@ -1,4 +1,5 @@
 const root = document.getElementById('root');
+
 const wall = {
     feed: (divFeed) => {
         console.log('este es el muro');
@@ -12,4 +13,5 @@ const wall = {
     }
 
 }
+
 export default wall;
