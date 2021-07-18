@@ -8,7 +8,7 @@ const init = () => {
     window.addEventListener('hashchange', () => {
         changeRoute(window.location.hash, userActive);
     });
-    //window.location.hash = '#/login';
+
 };
 
 window.addEventListener('load', () => {
