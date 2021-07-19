@@ -9,7 +9,6 @@ export const showTemplate = (hash, user) => {
     containerRoot.innerHTML = '';
 
     switch (hash) {
-
         case '':
             window.location.hash = '#/login';
             containerRoot == LoginMethod.login(divLogin);
@@ -32,7 +31,6 @@ export const showTemplate = (hash, user) => {
             } else {
                 containerRoot == LoginMethod.login(divLogin);
                 window.location.hash = '#/login';
-
             }
             break;
           

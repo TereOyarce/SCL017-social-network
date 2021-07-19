@@ -45,11 +45,24 @@ function observer() {
 }
 observer();
 
-function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
-    //let user = user;
 
+//Logout
+export const firebaseLogout = () => {
+    firebase.auth().signOut()
+      .then(() => {
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+
+
+export function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
+    //let user = user;
     if (user.emailVerified && googleAccess) {
         showTemplate('#/wall', user);
-
+    } else {
+        showTemplate('', user);
     }
-}
+};
