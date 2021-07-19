@@ -11,7 +11,6 @@ const wall = {
         const prueba = document.createElement('p');
         prueba.textContent = 'holaa';
         div.appendChild(prueba);
-
         console.log('Dos veces?');
 
         //Logout button
