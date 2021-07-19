@@ -45,6 +45,7 @@ function observer() {
 }
 observer();
 
+
 let userInactive;
 //Logout
 export const firebaseLogout = () => {
@@ -61,6 +62,9 @@ export const firebaseLogout = () => {
 
 
 
+
+
+
 export function show(user) { //Función para mostrar en pantalla 'algo' sólo si el usuario que inicia sesión está verificado
     //let user = user;
     if (user.emailVerified && googleAccess) {
@@ -68,4 +72,5 @@ export function show(user) { //Función para mostrar en pantalla 'algo' sólo si
     } else {
         showTemplate('', user);
     }
+
 };
