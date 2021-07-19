@@ -12,7 +12,6 @@ const init = () => {
 
 window.addEventListener('load', () => {
     changeRoute(window.location.hash, userActive);
-    init();
 });
 
 let userActive;
@@ -62,7 +61,5 @@ export function show(user) { //Función para mostrar en pantalla 'algo' sólo si
     //let user = user;
     if (user.emailVerified && googleAccess) {
         showTemplate('#/wall', user);
-    } else {
-        showTemplate('', user);
-    }
+    } 
 };
