@@ -1,3 +1,7 @@
+import { firebaseLogout } from '../main.js';
+import { createElement } from '../method/MethodCreateElement.js';
+
+
 const root = document.getElementById('root');
 
 const wall = {
@@ -7,8 +11,21 @@ const wall = {
         const prueba = document.createElement('p');
         prueba.textContent = 'holaa';
         div.appendChild(prueba);
-        root.appendChild(div);
+        
         console.log('Dos veces?');
+
+        //Logout button
+        const logoutButton = createElement('button', 'logoutButton', 'logoutButton', '', 'Cerrar Sesión', '');
+        logoutButton.addEventListener('click', () => {
+            firebaseLogout();
+        });
+
+        div.appendChild(logoutButton);
+
+      
+        root.appendChild(div);
+
+
         return divFeed;
     }
 
