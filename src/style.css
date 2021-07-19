@@ -1,6 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+    --milkMedium: #f8eebc;
+    --milkLight: #fff9e5;
+    --brown: #786951;
+    --greenMedium: #88c9a1;
+    --green: #68b893;
+    --greenLight: #a4d4a2;
+    --softPink: #febdc3;
+    --pink: #ef758a;
+    --salmon: #ff7c69;
+    --lightBlue: #7cc9c3;
+    --mint: #8ecfca;
+    --turquoise: #017c74;
+    --yellow: #f7d359;
+    --lightYellow: #fcea64;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -158,4 +176,34 @@ a:active {
 .element h4 {
     font-size: 20px;
     color: #FF7C69;
+}
+
+
+
+/*WALL*/ 
+
+.wallContainer{
+    display: grid;
+    grid-template-columns: auto;
+
+}
+
+.wallContainer .navContainer{
+    background-color: var(--mint);
+    height: 4rem;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+}
+
+.wallContainer .bodyContainer{
+    padding-top: 5rem;
+    height: 100vh;
+    background-color: var(--milkLight);
+    
+}
+
+.bodyContainer .inputPost{
+    height: 2rem;
+    width: 10rem;
 }
