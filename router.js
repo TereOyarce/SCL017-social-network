@@ -9,7 +9,8 @@ export const showTemplate = (hash, user) => {
     containerRoot.innerHTML = '';
 
     switch (hash) {
-        case '#/':
+
+        case '':
             window.location.hash = '#/login';
             containerRoot == LoginMethod.login(divLogin);
             break;
@@ -34,13 +35,7 @@ export const showTemplate = (hash, user) => {
 
             }
             break;
-
-            /*default:
-              containerRoot.innerHTML = `
-            <h2>No se han encontrado resultados:</h2>
-                `;*/
-            /* default:
-               break;*/
+          
     }
 
 

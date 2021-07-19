@@ -4,7 +4,6 @@ import {} from './Login/accessRegister.js';
 
 
 const init = () => {
-
     window.addEventListener('hashchange', () => {
         changeRoute(window.location.hash, userActive);
     });
