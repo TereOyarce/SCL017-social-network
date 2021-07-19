@@ -117,11 +117,13 @@ const LoginMethod = {
         const textRegister = document.createElement('p');
         textRegister.textContent = 'Regístrate'
         textRegister.className = 'textRegister';
+        const imgCanelita = createElement('img', 'imgCanelita', 'imgCanelita', 'src', '', 'img/canela.png'); // Imagen canela
         const emailR = createElement('input', 'emailR', 'emailR', 'email', 'Ingrese correo', ''); //Input correo
         const passR = createElement('input', 'passR', 'passR', 'password', 'contraseña', ''); // Input clave
         const registerB = createElement('button', 'registerB', 'registerB', '', 'Crear', ''); // boton registrarse
         const btnX = createElement('button', 'btnX', 'btnX', '', 'x', ''); // boton cerrar modal
         modal.appendChild(btnX);
+        modal.appendChild(imgCanelita);
         modal.appendChild(textRegister);
         modal.appendChild(emailR);
         modal.appendChild(passR);
