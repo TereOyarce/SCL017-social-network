@@ -1,7 +1,7 @@
 import { showTemplate, changeRoute } from './router.js';
 import { googleAccess } from './Login/accessLogin.js';
 import {} from './Login/accessRegister.js';
-
+import wall from './Wall/wall.js';
 
 const init = () => {
     window.addEventListener('hashchange', () => {
@@ -12,7 +12,7 @@ const init = () => {
 
 window.addEventListener('load', () => {
     changeRoute(window.location.hash, userActive);
-    init();
+
 });
 
 let userActive;
@@ -45,16 +45,18 @@ function observer() {
 }
 observer();
 
-
+let userInactive;
 //Logout
 export const firebaseLogout = () => {
     firebase.auth().signOut()
-      .then(() => {
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+        .then(() => {
+
+
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
 
 
 
@@ -62,7 +64,6 @@ export function show(user) { //Función para mostrar en pantalla 'algo' sólo si
     //let user = user;
     if (user.emailVerified && googleAccess) {
         showTemplate('#/wall', user);
-    } else {
-        showTemplate('', user);
     }
+
 };
