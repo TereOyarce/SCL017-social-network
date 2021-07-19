@@ -8,6 +8,7 @@ export const showTemplate = (hash, user) => {
     const containerRoot = document.getElementById('root');
     containerRoot.innerHTML = '';
 
+
     switch (hash) {
         case '':
             window.location.hash = '#/login';
@@ -33,7 +34,7 @@ export const showTemplate = (hash, user) => {
                 window.location.hash = '#/login';
             }
             break;
-          
+
     }
 
 
