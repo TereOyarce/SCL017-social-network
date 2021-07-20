@@ -46,8 +46,8 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                 buttonDelete.classList.add('btn');
                 buttonDelete.setAttribute('data-id', task.id);
                 postContainer.appendChild(individualPost);
-                individualPost.appendChild(editButton);
-                individualPost.appendChild(buttonDelete);
+                postContainer.appendChild(editButton);
+                postContainer.appendChild(buttonDelete);
 
                 individualPost.innerHTML += task.description, editButton, buttonDelete;
 
