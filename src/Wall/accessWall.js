@@ -30,42 +30,42 @@ postContainer.id = 'postContainer';
 postContainer.classList.add('postContainer');
 
 
-window.addEventListener('DOMContentLoaded', async (e) => {
+window.addEventListener('DOMContentLoaded', async(e) => {
     onGetPost((arrayPost) => {
-        postContainer.innerHTML = '';
-        arrayPost.forEach(doc => {
-            const task = doc.data();
+            postContainer.innerHTML = '';
+            arrayPost.forEach((doc) => {
+                const task = doc.data();
                 task.id = doc.id;
-            
-            const individualPost = createDiv('div', 'individualPost', 'individualPost');
-                individualPost.innerHTML = `${doc.data().description}`;
+                console.log(task.id);
 
-            const editButton = createElement('button', 'editButton', 'editButton', '', 'Editar', '');
 
-            const deleteButton = createElement('button', 'idButton', 'deleteButton', '', 'Eliminar', '');
-                deleteButton.setAttribute('data-id', '${task.id}');
-                deleteButton.className = 'btn';
-            const btnDelete = document.querySelectorAll('.deleteButton');
-                btnDelete.forEach(btn => {
-                    idButton.addEventListener('click', async (e) => {
+                const individualPost = createDiv('div', 'individualPost', 'individualPost');
+                const editButton = createElement('button', 'editButton', 'editButton', '', 'Editar', '');
+
+                const buttonDelete = createElement('button', 'deleteButton', 'deleteClassButton', '', 'Eliminar', '');
+                buttonDelete.classList.add('btn');
+                buttonDelete.setAttribute('data-id', task.id);
+                postContainer.appendChild(individualPost);
+                postContainer.appendChild(editButton);
+                postContainer.appendChild(buttonDelete);
+
+                individualPost.innerHTML += task.description, editButton, buttonDelete;
+
+            })
+
+
+            const btnDelete = document.querySelectorAll('.deleteClassButton');
+            btnDelete.forEach(btn => {
+                btn.addEventListener('click', async(e) => {
                     await deletePost(e.target.dataset.id);
-                    console.log(btn);
-                    });
-                })
-               
-        
-            postContainer.appendChild(individualPost);
-            postContainer.appendChild(editButton);
-            postContainer.appendChild(deleteButton);
+
+                });
+            })
+
+
+
+
         })
-    })
-    //const arrayPost = await getPost();
-    
+        //const arrayPost = await getPost();
+
 });
-
-
-
-
-
-
-
