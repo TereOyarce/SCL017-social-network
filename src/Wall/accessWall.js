@@ -40,27 +40,31 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
 
                 const individualPost = createDiv('div', 'individualPost', 'individualPost');
-                individualPost.innerHTML += `${doc.data().description}`;
-
                 const editButton = createElement('button', 'editButton', 'editButton', '', 'Editar', '');
 
                 const buttonDelete = createElement('button', 'deleteButton', 'deleteClassButton', '', 'Eliminar', '');
                 buttonDelete.classList.add('btn');
                 buttonDelete.setAttribute('data-id', task.id);
-
-                const btnDelete = document.querySelectorAll('.deleteClassButton');
-                btnDelete.forEach(btn => {
-                    btn.addEventListener('click', async(e) => {
-                        await deletePost(e.target.dataset.id);
-
-                    });
-                })
-
-
                 postContainer.appendChild(individualPost);
-                postContainer.appendChild(editButton);
-                postContainer.appendChild(buttonDelete);
+                individualPost.appendChild(editButton);
+                individualPost.appendChild(buttonDelete);
+
+                individualPost.innerHTML += task.description, editButton, buttonDelete;
+
             })
+
+
+            const btnDelete = document.querySelectorAll('.deleteClassButton');
+            btnDelete.forEach(btn => {
+                btn.addEventListener('click', async(e) => {
+                    await deletePost(e.target.dataset.id);
+
+                });
+            })
+
+
+
+
         })
         //const arrayPost = await getPost();
 
