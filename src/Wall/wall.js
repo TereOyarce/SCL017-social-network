@@ -3,6 +3,7 @@ import { createElement } from '../method/MethodCreateElement.js';
 import { createDiv } from '../method/divCreator.js';
 import { database } from './accessWall.js';
 import { savePost } from './accessWall.js';
+import { postContainer } from './accessWall.js';
 //import { getPost } from './accessWall.js';
 
 
@@ -31,6 +32,8 @@ const wall = {
 
         const inputPost = createElement('input', 'inputPost', 'inputPost', 'text', '¿Qué estás pensando?', '');
         const postButton = createElement('button', 'postButton', 'postButton', '', 'Publicar', '');
+        
+
 
         
         
@@ -51,6 +54,7 @@ const wall = {
 
         navContainer.appendChild(logoutButton);
         bodyContainer.appendChild(form);
+        bodyContainer.appendChild(postContainer);
 
         wallContainer.appendChild(navContainer);
         wallContainer.appendChild(bodyContainer);
