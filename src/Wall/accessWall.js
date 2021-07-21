@@ -45,6 +45,11 @@ form.addEventListener('submit', async(e) => {
         await updatePost(id, {
             description: description,
         })
+        editStatus = false;
+        id = '';
+        form['postButton'].innerText = 'Publicar';
+
+
     }
     //await getPost();
     form.reset();
