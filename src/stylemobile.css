@@ -245,4 +245,15 @@
         padding: 0.4rem;
         border-radius: 0.5rem;
     }
+    .bodyContainer .postContainer {
+        display: grid;
+        grid-template-columns: 1;
+    }
+    .postContainer .individualPost {
+        background-color: white;
+    }
+    .containerButton {
+        display: flex;
+        justify-content: space-evenly;
+    }
 }

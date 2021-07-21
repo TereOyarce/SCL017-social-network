@@ -84,9 +84,11 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             const buttonDelete = createElement('button', 'deleteButton', 'deleteClassButton', '', 'Eliminar', '');
             buttonDelete.classList.add('btn');
             buttonDelete.setAttribute('data-id', task.id);
+            const containerButton = createDiv('div', 'containerButton', 'containerButton');
             postContainer.appendChild(individualPost);
-            postContainer.appendChild(editButton);
-            postContainer.appendChild(buttonDelete);
+            postContainer.appendChild(containerButton);
+            containerButton.appendChild(editButton);
+            containerButton.appendChild(buttonDelete);
 
             individualPost.innerHTML += task.description, editButton, buttonDelete;
 
