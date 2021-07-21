@@ -4,6 +4,7 @@ import { createDiv } from '../method/divCreator.js';
 import { database } from './accessWall.js';
 import { savePost } from './accessWall.js';
 import { postContainer } from './accessWall.js';
+import { form, inputPost, postButton } from './accessWall.js'
 //import { getPost } from './accessWall.js';
 
 
@@ -27,28 +28,6 @@ const wall = {
         //Body post
         const bodyContainer = createDiv('div', 'bodyContainer', 'bodyContainer');
 
-        const form = document.createElement('form');
-        form.id = 'formId';
-
-        const inputPost = createElement('input', 'inputPost', 'inputPost', 'text', '¿Qué estás pensando?', '');
-        const postButton = createElement('button', 'postButton', 'postButton', '', 'Publicar', '');
-        
-
-
-        
-        
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const description = form['inputPost'].value;
-            await savePost(description);
-            form.reset();
-            console.log(description);
-        })
-
-
-
-
         form.appendChild(inputPost);
         form.appendChild(postButton);
 
@@ -58,9 +37,6 @@ const wall = {
 
         wallContainer.appendChild(navContainer);
         wallContainer.appendChild(bodyContainer);
-
-
-
 
         root.appendChild(wallContainer);
 
