@@ -29,6 +29,9 @@
     font-weight: normal;
 }
 
+
+/*Pantalla Inicio*/
+
 @media (max-width: 1024px) {
     .contDivLogin {
         height: 100vh;
@@ -168,4 +171,13 @@
 .element h4 {
     font-size: 20px;
     color: #FF7C69;
+}
+
+
+/*Pantalla Muro*/
+
+@media (max-width: 1024px) {
+    .divImg {
+        background-color: #017c74;
+    }
 }

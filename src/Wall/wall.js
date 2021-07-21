@@ -18,6 +18,12 @@ const wall = {
         //Navigation Menu
         const navContainer = createDiv('div', 'navContainer', 'navContainer');
 
+        const divImg = createDiv('div', 'divImg', 'divImg');
+        const imgNook = createElement('img', 'imgNook', 'imgNook', '', '', './img/logo.png');
+        imgNook.setAttribute("href", "#/wall");
+
+
+
         //Logout button
         const logoutButton = createElement('button', 'logoutButton', 'logoutButton', '', 'Cerrar Sesión', '');
         logoutButton.addEventListener('click', () => {
@@ -30,7 +36,8 @@ const wall = {
 
         form.appendChild(inputPost);
         form.appendChild(postButton);
-
+        divImg.appendChild(imgNook);
+        navContainer.appendChild(divImg);
         navContainer.appendChild(logoutButton);
         bodyContainer.appendChild(form);
         bodyContainer.appendChild(postContainer);
