@@ -25,7 +25,7 @@ const wall = {
 
 
         //Logout button
-        const logoutButton = createElement('button', 'logoutButton', 'logoutButton', '', 'Cerrar Sesión', '');
+        const logoutButton = createElement('button', 'logoutButton', 'logoutButton', '', 'Salir', '');
         logoutButton.addEventListener('click', () => {
             firebaseLogout();
         });

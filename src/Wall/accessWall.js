@@ -10,7 +10,11 @@ let id = '';
 export const form = document.createElement('form');
 form.id = 'formId';
 
-export const inputPost = createElement('input', 'inputPost', 'inputPost', 'text', '¿Qué estás pensando?', '');
+export const inputPost = document.createElement('textarea');
+document.createElement('textarea');
+inputPost.id = 'inputPost';
+inputPost.classList.add('inputPost;');
+inputPost.placeholder = '¿Qué estás pensando?'
 export const postButton = createElement('button', 'postButton', 'postButton', '', 'Publicar', '');
 
 export const savePost = (description) => {
@@ -80,9 +84,11 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             const buttonDelete = createElement('button', 'deleteButton', 'deleteClassButton', '', 'Eliminar', '');
             buttonDelete.classList.add('btn');
             buttonDelete.setAttribute('data-id', task.id);
+            const containerButton = createDiv('div', 'containerButton', 'containerButton');
             postContainer.appendChild(individualPost);
-            postContainer.appendChild(editButton);
-            postContainer.appendChild(buttonDelete);
+            postContainer.appendChild(containerButton);
+            containerButton.appendChild(editButton);
+            containerButton.appendChild(buttonDelete);
 
             individualPost.innerHTML += task.description, editButton, buttonDelete;
 
