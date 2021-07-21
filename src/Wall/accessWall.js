@@ -10,7 +10,11 @@ let id = '';
 export const form = document.createElement('form');
 form.id = 'formId';
 
-export const inputPost = createElement('input', 'inputPost', 'inputPost', 'text', '¿Qué estás pensando?', '');
+export const inputPost = document.createElement('textarea');
+document.createElement('textarea');
+inputPost.id = 'inputPost';
+inputPost.classList.add('inputPost;');
+inputPost.placeholder = '¿Qué estás pensando?'
 export const postButton = createElement('button', 'postButton', 'postButton', '', 'Publicar', '');
 
 export const savePost = (description) => {
