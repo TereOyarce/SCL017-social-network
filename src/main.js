@@ -48,13 +48,13 @@ observer();
 //Logout
 export const firebaseLogout = () => {
     firebase.auth().signOut()
-      .then(() => {
-        showTemplate('#/login', null);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+        .then(() => {
+            showTemplate('#/login', null);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
 
 
 
@@ -66,5 +66,6 @@ export function show(user) { //Función para mostrar en pantalla 'algo' sólo si
         showTemplate('', user);
     }
 };
+
 
 //NO.
