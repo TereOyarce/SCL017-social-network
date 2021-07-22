@@ -3,6 +3,7 @@ import { createDiv } from '../method/divCreator.js';
 
 
 //POST A FIREBASE
+
 export const database = firebase.firestore();
 let editStatus = false;
 let id = '';
