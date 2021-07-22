@@ -177,8 +177,9 @@
 /*Pantalla Muro*/
 
 @media (max-width: 1024px) {
-    .navContainer {
+    .wallContainer .navContainer {
         display: flex;
+        position: relative;
     }
     .logoutButton {
         appearance: none;
@@ -205,10 +206,12 @@
         margin-left: 1rem;
         margin-top: 0.3rem;
     }
-    .bodyContainer {
+    .wallContainer .bodyContainer {
         display: grid;
         grid-template-columns: 1;
         justify-content: center;
+        height: 100%;
+        background-color: var(--milkLight);
     }
     #formId {
         display: flex;
@@ -217,7 +220,7 @@
         background-color: var(--lightBlue);
         padding: 3rem;
         height: 6rem;
-        width: 12rem;
+        width: 16rem;
         border-radius: 0.4rem;
     }
     #formId textarea {
@@ -228,7 +231,7 @@
         border-radius: 0.4rem;
         min-width: 150px;
         max-width: 500px;
-        width: 13rem;
+        width: 12rem;
         height: 150px;
         align-self: center;
         outline: none;
@@ -246,14 +249,66 @@
         border-radius: 0.5rem;
     }
     .bodyContainer .postContainer {
-        display: grid;
-        grid-template-columns: 1;
+        position: relative;
+        top: -1rem;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
     }
     .postContainer .individualPost {
         background-color: white;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+        margin-top: 2rem;
+        text-align: center;
+        padding-top: 0.5rem;
+        font-family: 'nintendoP_Humming-E_002pr';
+        width: 19rem;
+        height: 5rem;
     }
     .containerButton {
         display: flex;
         justify-content: space-evenly;
+        background-color: white;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        padding: 0.5rem;
+        width: 18rem;
+        height: 3rem;
+    }
+    .editClassButton,
+    .deleteClassButton {
+        width: 5rem;
+        height: 1.5rem;
+        appearance: none;
+        border: none;
+        text-decoration: none;
+        background-color: var(--pink);
+        color: var(--milkMedium);
+        border-radius: 0.5rem;
+    }
+    #navMobile {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        z-index: 10;
+        bottom: 0;
+        background-color: var(--pink);
+        padding: 1rem;
+    }
+    .navMobile img {
+        width: 10%;
+    }
+    #imgHome,
+    #imgProfile {
+        width: 25%;
+    }
+    #imgHome,
+    #imgProfile,
+    .imgSearch,
+    .imgChat {
+        display: flex;
+        justify-content: right;
     }
 }
