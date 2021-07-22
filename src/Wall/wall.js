@@ -20,7 +20,8 @@ const wall = {
 
         const divImg = createDiv('div', 'divImg', 'divImg');
         const imgNook = createElement('img', 'imgNook', 'imgNook', '', '', './img/logo.png');
-        imgNook.setAttribute("href", "#/wall");
+        const imgNookLink = document.createElement('a');
+        imgNookLink.href = '#/wall';
 
 
 
@@ -30,17 +31,39 @@ const wall = {
             firebaseLogout();
         });
 
+        //Div nav footer SOLO VISTA MOVIL
+        const navMobile = createDiv('div', 'navMobile', 'navMobile');
+        const imgProfile = createElement('img', 'imgProfile', 'imgProfile', '', '', './img/porfileicon.png');
+        const profileLink = document.createElement('a');
+        profileLink.href = '#/profile';
+        profileLink.appendChild(imgProfile);
+        const imgHome = createElement('img', 'imgHome', 'imgHome', '', '', './img/homeprofile.png');
+        const homeLink = document.createElement('a');
+        homeLink.href = '#/wall';
+        homeLink.appendChild(imgHome);
+
+        const imgChat = createElement('img', 'imgChat', 'imgChat', '', '', './img/chatimg.png');
+        const imgSearch = createElement('img', 'imgSearch', 'imgSearch', '', '', './img/searchicon.png');
+        navMobile.appendChild(homeLink);
+        navMobile.appendChild(imgSearch);
+        navMobile.appendChild(imgChat);
+        navMobile.appendChild(profileLink);
+        //AQUI TERMINA DIV NAV VISTA MOVIL
+
+
 
         //Body post
         const bodyContainer = createDiv('div', 'bodyContainer', 'bodyContainer');
-
+        bodyContainer.appendChild(navMobile);
         form.appendChild(inputPost);
         form.appendChild(postButton);
-        divImg.appendChild(imgNook);
+        divImg.appendChild(imgNookLink);
+        imgNookLink.appendChild(imgNook)
         navContainer.appendChild(divImg);
         navContainer.appendChild(logoutButton);
         bodyContainer.appendChild(form);
         bodyContainer.appendChild(postContainer);
+
 
         wallContainer.appendChild(navContainer);
         wallContainer.appendChild(bodyContainer);
