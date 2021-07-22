@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-
 :root {
     --milkMedium: #f8eebc;
     --milkLight: #fff9e5;
@@ -24,7 +23,7 @@
     padding: 0;
 }
 
-body{
+body {
     background-color: var(--milkLight);
 }
 
@@ -33,8 +32,6 @@ a:visited,
 a:active {
     text-decoration: none;
 }
-
-
 
 .contDivLogin {
     background-image: url('./img/bgoppacity.png');
@@ -185,16 +182,14 @@ a:active {
 }
 
 
+/*WALL*/
 
-/*WALL*/ 
-
-.wallContainer{
-    display: grid;
-    grid-template-columns: auto;
-
+.wallContainer {
+    display: flex;
+    justify-content: center;
 }
 
-.navContainer{
+.navContainer {
     display: flex;
     background-color: var(--mint);
     height: 4rem;
@@ -203,26 +198,24 @@ a:active {
     z-index: 10;
 }
 
-.bodyContainer{
-    display: grid;
-    grid-template-columns: 1;
-    justify-content: center;
+.bodyContainer {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     height: 100vh;
     background-color: var(--milkLight);
     padding-top: 5rem;
     height: 100vh;
-    padding-left: 20%;
-    padding-right: 20%;
     grid-gap: 2rem;
+    padding-bottom: 900px;
 }
 
-.divImg .imgNook{
+.divImg .imgNook {
     padding-left: 0.5rem;
     width: 10%;
 }
 
-.navContainer .logoutButton{
+.navContainer .logoutButton {
     width: 10rem;
     margin-left: 41rem;
     font-family: 'Finger Paint';
@@ -237,8 +230,7 @@ a:active {
     background-color: rgba(93, 109, 94, 0.747);
 }
 
-
-#formId{
+#formId {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -271,16 +263,16 @@ a:active {
     border-radius: 0.5rem;
 }
 
-.bodyContainer .inputPost{
+.bodyContainer .inputPost {
     height: 2rem;
     width: 10rem;
 }
 
-.navMobile{
+.navMobile {
     display: none;
 }
 
-.postContainer{
+.postContainer {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -290,7 +282,7 @@ a:active {
     padding-top: 2rem;
 }
 
-.postContainer .individualPost{
+.postContainer .individualPost {
     background-color: white;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
