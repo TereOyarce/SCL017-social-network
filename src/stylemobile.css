@@ -177,6 +177,9 @@
 /*Pantalla Muro*/
 
 @media (max-width: 1024px) {
+    body {
+        background-color: var(--milkLight);
+    }
     .wallContainer .navContainer {
         display: flex;
         position: relative;
@@ -210,8 +213,10 @@
         display: grid;
         grid-template-columns: 1;
         justify-content: center;
-        height: 100%;
         background-color: var(--milkLight);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
     }
     #formId {
         display: flex;
@@ -250,11 +255,11 @@
     }
     .bodyContainer .postContainer {
         position: relative;
-        top: -1rem;
         display: flex;
         flex-direction: column;
         align-content: center;
         align-items: center;
+        padding-bottom: 80px;
     }
     .postContainer .individualPost {
         background-color: white;
