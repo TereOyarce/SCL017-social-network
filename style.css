@@ -278,11 +278,14 @@ a:active {
     flex-direction: column;
     align-content: center;
     align-items: center;
-    padding-bottom: 7rem;
+    padding-bottom: 2rem;
     padding-top: 2rem;
+    background-color: var(--mint);
+    margin-bottom: 5rem;
+    border-radius: 0.3rem;
 }
 
-.postContainer .individualPost {
+.individualPost {
     background-color: white;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
