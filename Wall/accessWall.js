@@ -10,6 +10,7 @@ let id = '';
 export const form = document.createElement('form');
 form.id = 'formId';
 
+
 export const inputPost = document.createElement('textarea');
 document.createElement('textarea');
 inputPost.id = 'inputPost';

@@ -188,7 +188,8 @@ a:active {
 
 }
 
-.wallContainer .navContainer{
+.navContainer{
+    display: flex;
     background-color: var(--mint);
     height: 4rem;
     width: 100%;
@@ -196,14 +197,57 @@ a:active {
     z-index: 10;
 }
 
-.wallContainer .bodyContainer{
+.bodyContainer{
+    padding: 10%;
     padding-top: 5rem;
     height: 100vh;
     background-color: var(--milkLight);
+    display: grid;
+    grid-template-columns: 1;
+    padding-left: 20%;
+    padding-right: 20%;
+    grid-gap: 2rem;
     
+}
+
+.divImg .imgNook{
+    padding-left: 0.5rem;
+    width: 10%;
+    
+}
+
+.navContainer .logoutButton{
+    width: 10rem;
+    margin-left: 41rem;
+    font-family: 'Finger Paint';
+    font-size: 18px;
+    color: var(--milkLight);
+    border: none;
+    background: var(--turquoise);
+    cursor: pointer;
+}
+
+.logoutButton:hover {
+    background-color: rgba(93, 109, 94, 0.747);
 }
 
 .bodyContainer .inputPost{
     height: 2rem;
     width: 10rem;
+}
+
+.postContainer{
+    background-color: var(--turquoise);
+}
+
+.postContainer .individualPost{
+    background-color: var(--softPink);
+}
+
+#formId{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--lightBlue);
+    padding: 2rem;
 }
