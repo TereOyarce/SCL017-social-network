@@ -3,6 +3,7 @@ import { createDiv } from '../method/divCreator.js';
 
 
 //POST A FIREBASE
+
 export const database = firebase.firestore();
 let editStatus = false;
 let id = '';
@@ -18,9 +19,10 @@ inputPost.classList.add('inputPost;');
 inputPost.placeholder = '¿Qué estás pensando?'
 export const postButton = createElement('button', 'postButton', 'postButton', '', 'Publicar', '');
 
-export const savePost = (description) => {
+export const savePost = (description, date) => {
     database.collection('post').doc().set({
-        description
+        description,
+        date
     });
 };
 
@@ -30,7 +32,7 @@ export const getPost = () => database.collection('post').get();
 export const getId = (id) => database.collection('post').doc(id).get();
 
 //Obtener data en tiempo real
-export const onGetPost = (callback) => database.collection('post').onSnapshot(callback);
+export const onGetPost = (callback) => database.collection('post').orderBy("date", "desc").onSnapshot(callback);
 
 //Borrar posts
 export const deletePost = id => database.collection('post').doc(id).delete();
@@ -45,7 +47,14 @@ form.addEventListener('submit', async(e) => {
     const description = form['inputPost'].value;
     console.log(description);
     if (!editStatus) {
-        await savePost(description);
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        today = dd + '/' + mm + '/' + yyyy + ' ' + time;
+        // console.log(timenow);
+        await savePost(description, today);
     } else {
         await updatePost(id, {
             description: description,
@@ -71,6 +80,7 @@ postContainer.classList.add('postContainer');
 window.addEventListener('DOMContentLoaded', async(e) => {
     onGetPost((arrayPost) => {
         postContainer.innerHTML = '';
+
         arrayPost.forEach((doc) => {
             const task = doc.data();
             task.id = doc.id;
