@@ -33,21 +33,21 @@ const wall = {
 
         //Div nav footer SOLO VISTA MOVIL
         const navMobile = createDiv('div', 'navMobile', 'navMobile');
-        const imgProfile = createElement('img', 'imgProfile', 'imgProfile', '', '', './img/porfileicon.png');
-        const profileLink = document.createElement('a');
-        profileLink.href = '#/profile';
-        profileLink.appendChild(imgProfile);
-        const imgHome = createElement('img', 'imgHome', 'imgHome', '', '', './img/homeprofile.png');
-        const homeLink = document.createElement('a');
-        homeLink.href = '#/wall';
-        homeLink.appendChild(imgHome);
+        const imgProfile = createElement('button', 'imgProfile', 'imgProfile', '', '', '');
+
+
+        const imgHome = createElement('button', 'imgHome', 'imgHome', '', '', '');
+        imgHome.addEventListener('click', () => {
+            window.location.hash = '#/wall';
+        })
+
 
         const imgChat = createElement('img', 'imgChat', 'imgChat', '', '', './img/chatimg.png');
         const imgSearch = createElement('img', 'imgSearch', 'imgSearch', '', '', './img/searchicon.png');
-        navMobile.appendChild(homeLink);
+        navMobile.appendChild(imgHome);
         navMobile.appendChild(imgSearch);
         navMobile.appendChild(imgChat);
-        navMobile.appendChild(profileLink);
+        navMobile.appendChild(imgProfile);
         //AQUI TERMINA DIV NAV VISTA MOVIL
 
 
