@@ -24,11 +24,17 @@
     padding: 0;
 }
 
+body{
+    background-color: var(--milkLight);
+}
+
 a:link,
 a:visited,
 a:active {
     text-decoration: none;
 }
+
+
 
 .contDivLogin {
     background-image: url('./img/bgoppacity.png');
@@ -198,22 +204,22 @@ a:active {
 }
 
 .bodyContainer{
-    padding: 10%;
-    padding-top: 5rem;
-    height: 100vh;
-    background-color: var(--milkLight);
     display: grid;
     grid-template-columns: 1;
+    justify-content: center;
+    position: absolute;
+    height: 100vh;
+    background-color: var(--milkLight);
+    padding-top: 5rem;
+    height: 100vh;
     padding-left: 20%;
     padding-right: 20%;
     grid-gap: 2rem;
-    
 }
 
 .divImg .imgNook{
     padding-left: 0.5rem;
     width: 10%;
-    
 }
 
 .navContainer .logoutButton{
@@ -231,23 +237,90 @@ a:active {
     background-color: rgba(93, 109, 94, 0.747);
 }
 
+
+#formId{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: var(--lightBlue);
+    padding: 2rem;
+    height: 10rem;
+}
+
+#formId textarea {
+    appearance: none;
+    text-decoration: none;
+    border-color: var(--mint);
+    border-width: 0.01rem;
+    border-radius: 0.4rem;
+    width: 45rem;
+    height: 10rem;
+    align-self: center;
+    outline: none;
+}
+
+#formId .postButton {
+    width: 6rem;
+    margin-top: 1rem;
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    background-color: var(--pink);
+    color: var(--milkMedium);
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+}
+
 .bodyContainer .inputPost{
     height: 2rem;
     width: 10rem;
 }
 
+.navMobile{
+    display: none;
+}
+
 .postContainer{
-    background-color: var(--turquoise);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding-bottom: 7rem;
+    padding-top: 2rem;
 }
 
 .postContainer .individualPost{
-    background-color: var(--softPink);
+    background-color: white;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    font-family: 'Finger Paint';
+    width: 45rem;
+    height: 5rem;
 }
 
-#formId{
+.containerButton {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--lightBlue);
-    padding: 2rem;
+    justify-content: space-evenly;
+    background-color: white;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 44rem;
+    height: 3rem;
+}
+
+.editClassButton,
+.deleteClassButton {
+    width: 5rem;
+    height: 1.5rem;
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    background-color: var(--pink);
+    color: var(--milkMedium);
+    border-radius: 0.5rem;
 }
