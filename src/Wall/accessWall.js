@@ -7,9 +7,11 @@ import { createDiv } from '../method/divCreator.js';
 export const database = firebase.firestore();
 let editStatus = false;
 let id = '';
+let userId = '';
 
 export const form = document.createElement('form');
 form.id = 'formId';
+
 
 
 export const inputPost = document.createElement('textarea');
@@ -19,10 +21,13 @@ inputPost.classList.add('inputPost;');
 inputPost.placeholder = '¿Qué estás pensando?'
 export const postButton = createElement('button', 'postButton', 'postButton', '', 'Publicar', '');
 
-export const savePost = (description, date) => {
+
+
+export const savePost = (description, date, userId) => {
     database.collection('post').doc().set({
         description,
-        date
+        date,
+        userId
     });
 };
 
@@ -53,8 +58,10 @@ form.addEventListener('submit', async(e) => {
         let yyyy = today.getFullYear();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         today = dd + '/' + mm + '/' + yyyy + ' ' + time;
+        const userId = firebase.auth().currentUser.email;
+        console.log(userId);
         // console.log(timenow);
-        await savePost(description, today);
+        await savePost(description, today, userId);
     } else {
         await updatePost(id, {
             description: description,
@@ -113,16 +120,26 @@ window.addEventListener('DOMContentLoaded', async(e) => {
         });
 
         const btnEdit = document.querySelectorAll('.editClassButton');
+
         btnEdit.forEach(btn => {
+
             btn.addEventListener('click', async(e) => {
-                const doc = await getId(e.target.dataset.id)
-                const task = doc.data();
+                if (userId == id) {
+                    const doc = await getId(e.target.dataset.id)
+                    const task = doc.data();
+                    userId = firebase.auth().currentUser.email;
+                    console.log(userId);
 
-                editStatus = true;
-                id = doc.id;
 
-                form['inputPost'].value = task.description;
-                form['postButton'].innerText = 'Actualizar';
+                    editStatus = true;
+                    id = doc.id;
+
+                    form['inputPost'].value = task.description;
+                    form['postButton'].innerText = 'Actualizar';
+                } else {
+                    console.log('noo');
+
+                }
             })
         })
 
