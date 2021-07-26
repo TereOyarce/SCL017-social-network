@@ -7,9 +7,11 @@ import { createDiv } from '../method/divCreator.js';
 export const database = firebase.firestore();
 let editStatus = false;
 let id = '';
+let userId = '';
 
 export const form = document.createElement('form');
 form.id = 'formId';
+
 
 
 export const inputPost = document.createElement('textarea');
@@ -19,10 +21,13 @@ inputPost.classList.add('inputPost;');
 inputPost.placeholder = '¿Qué estás pensando?'
 export const postButton = createElement('button', 'postButton', 'postButton', '', 'Publicar', '');
 
-export const savePost = (description, date) => {
+
+
+export const savePost = (description, date, userId) => {
     database.collection('post').doc().set({
         description,
-        date
+        date,
+        userId
     });
 };
 
@@ -53,8 +58,10 @@ form.addEventListener('submit', async(e) => {
         let yyyy = today.getFullYear();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         today = dd + '/' + mm + '/' + yyyy + ' ' + time;
+        userId = firebase.auth().currentUser.email;
+        console.log(userId);
         // console.log(timenow);
-        await savePost(description, today);
+        await savePost(description, today, userId);
     } else {
         await updatePost(id, {
             description: description,
@@ -85,9 +92,11 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             const task = doc.data();
             task.id = doc.id;
             console.log(task.id);
+            let userActive = firebase.auth().currentUser.email;
 
 
             const individualPost = createDiv('div', 'individualPost', 'individualPost');
+
             const editButton = createElement('button', 'editButton', 'editClassButton', '', 'Editar', '');
             editButton.classList.add('btn');
             editButton.setAttribute('data-id', task.id);
@@ -96,10 +105,16 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             buttonDelete.classList.add('btn');
             buttonDelete.setAttribute('data-id', task.id);
             const containerButton = createDiv('div', 'containerButton', 'containerButton');
+
             postContainer.appendChild(individualPost);
             postContainer.appendChild(containerButton);
-            containerButton.appendChild(editButton);
-            containerButton.appendChild(buttonDelete);
+
+            if (userActive == task.userId) {
+                containerButton.appendChild(editButton);
+                containerButton.appendChild(buttonDelete);
+            }
+
+
 
             individualPost.innerHTML += task.description, editButton, buttonDelete;
 
@@ -113,16 +128,27 @@ window.addEventListener('DOMContentLoaded', async(e) => {
         });
 
         const btnEdit = document.querySelectorAll('.editClassButton');
+
         btnEdit.forEach(btn => {
+
             btn.addEventListener('click', async(e) => {
+
                 const doc = await getId(e.target.dataset.id)
                 const task = doc.data();
+                let userActive = firebase.auth().currentUser.email;
+                if (userActive == task.userId) {
+                    id = doc.id;
+                    console.log(userActive);
 
-                editStatus = true;
-                id = doc.id;
+                    editStatus = true;
+                    id = doc.id;
 
-                form['inputPost'].value = task.description;
-                form['postButton'].innerText = 'Actualizar';
+                    form['inputPost'].value = task.description;
+                    form['postButton'].innerText = 'Actualizar';
+                } else {
+                    console.log('noo');
+
+                }
             })
         })
 
