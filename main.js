@@ -19,7 +19,7 @@ const app = firebase.app();
 console.log(app);
 
 // Observador
-function observer() {
+export function observer() {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             userActive = user;
