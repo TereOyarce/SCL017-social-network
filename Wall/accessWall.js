@@ -58,7 +58,7 @@ form.addEventListener('submit', async(e) => {
         let yyyy = today.getFullYear();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         today = dd + '/' + mm + '/' + yyyy + ' ' + time;
-        const userId = firebase.auth().currentUser.email;
+        userId = firebase.auth().currentUser.email;
         console.log(userId);
         // console.log(timenow);
         await savePost(description, today, userId);
@@ -92,9 +92,11 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             const task = doc.data();
             task.id = doc.id;
             console.log(task.id);
+            let userActive = firebase.auth().currentUser.email;
 
 
             const individualPost = createDiv('div', 'individualPost', 'individualPost');
+
             const editButton = createElement('button', 'editButton', 'editClassButton', '', 'Editar', '');
             editButton.classList.add('btn');
             editButton.setAttribute('data-id', task.id);
@@ -103,10 +105,16 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             buttonDelete.classList.add('btn');
             buttonDelete.setAttribute('data-id', task.id);
             const containerButton = createDiv('div', 'containerButton', 'containerButton');
+
             postContainer.appendChild(individualPost);
             postContainer.appendChild(containerButton);
-            containerButton.appendChild(editButton);
-            containerButton.appendChild(buttonDelete);
+
+            if (userActive == task.userId) {
+                containerButton.appendChild(editButton);
+                containerButton.appendChild(buttonDelete);
+            }
+
+
 
             individualPost.innerHTML += task.description, editButton, buttonDelete;
 
@@ -124,12 +132,13 @@ window.addEventListener('DOMContentLoaded', async(e) => {
         btnEdit.forEach(btn => {
 
             btn.addEventListener('click', async(e) => {
-                if (userId == id) {
-                    const doc = await getId(e.target.dataset.id)
-                    const task = doc.data();
-                    userId = firebase.auth().currentUser.email;
-                    console.log(userId);
 
+                const doc = await getId(e.target.dataset.id)
+                const task = doc.data();
+                let userActive = firebase.auth().currentUser.email;
+                if (userActive == task.userId) {
+                    id = doc.id;
+                    console.log(userActive);
 
                     editStatus = true;
                     id = doc.id;
