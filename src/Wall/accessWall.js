@@ -51,27 +51,21 @@ form.addEventListener('submit', async(e) => {
     e.preventDefault();
     const description = form['inputPost'].value;
     console.log(description);
-    if (!editStatus) {
-        let today = new Date();
-        let dd = String(today.getDate()).padStart(2, '0');
-        let mm = String(today.getMonth() + 1).padStart(2, '0');
-        let yyyy = today.getFullYear();
-        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        today = dd + '/' + mm + '/' + yyyy + ' ' + time;
-        userId = firebase.auth().currentUser.email;
-        console.log(userId);
-        // console.log(timenow);
-        await savePost(description, today, userId);
-    } else {
-        await updatePost(id, {
-            description: description,
-        })
-        editStatus = false;
-        id = '';
-        form['postButton'].innerText = 'Publicar';
+
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    today = dd + '/' + mm + '/' + yyyy + ' ' + time;
+    userId = firebase.auth().currentUser.email;
+    console.log(userId);
+    // console.log(timenow);
+    await savePost(description, today, userId);
 
 
-    }
+    editStatus = false;
+    id = '';
     //await getPost();
     form.reset();
 
@@ -109,15 +103,13 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             const containerButton = createDiv('div', 'containerButton', 'containerButton');
 
             postContainer.appendChild(individualPost);
-
+            postContainer.appendChild(containerButton);
 
             if (userActive == task.userId) {
                 containerButton.appendChild(editButton);
                 containerButton.appendChild(buttonDelete);
-                postContainer.appendChild(containerButton);
+
             }
-
-
 
             individualPost.innerHTML += task.description, editButton, buttonDelete;
 
@@ -142,33 +134,37 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
             btn.addEventListener('click', async(e) => {
 
-
                 const doc = await getId(e.target.dataset.id)
                 const task = doc.data();
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive == task.userId) {
                     id = doc.id;
                     console.log(userActive);
-                    [...individualPost].forEach(post => {
-                        console.log(post.getAttribute('data-id'));
-                        if (post.getAttribute('data-id') == id) {
-                            console.log('se empató');
-                            post.contentEditable = true;
-                        }
-                        //  let currentPost = post.getElementbyId(id);
+                    if ([...individualPost].length > 0) {
+                        [...individualPost].forEach(post => {
+                            console.log(post.getAttribute('data-id'));
+                            if (post.getAttribute('data-id') == id) {
+                                if (btn.innerText == 'Editar') {
+                                    post.focus();
+                                    post.contentEditable = true;
+                                    editStatus = true;
+                                    btn.innerText = 'Guardar';
 
-                    })
+                                } else if (btn.innerText == 'Guardar') {
+                                    post.focus();
+                                    post.contentEditable = false;
+                                    editStatus = false;
+                                    btn.innerText = 'Editar';
 
-                    individualPost.contentEditable = true;
-                    editStatus = true;
+                                    updatePost(id, {
+                                        description: post.innerHTML
+                                    })
+                                }
+                            }
+                        })
+                    } else { //En el caso de ser un post,hacer esto
+                    }
 
-
-
-
-
-                    individualPost.value = task.description;
-                    btnEdit.innerText = 'Guardar';
-                    //form['postButton'].innerText = 'Actualizar';
                 } else {
                     console.log('noo');
 
