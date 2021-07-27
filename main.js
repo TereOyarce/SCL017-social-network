@@ -68,4 +68,3 @@ export function show(user) { //Función para mostrar en pantalla 'algo' sólo si
 };
 
 
-//NO.

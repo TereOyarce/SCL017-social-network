@@ -9,11 +9,12 @@ let editStatus = false;
 let id = '';
 let userId = '';
 
+//Form
 export const form = document.createElement('form');
 form.id = 'formId';
 
 
-
+//¿Qué estás pensando?
 export const inputPost = document.createElement('textarea');
 document.createElement('textarea');
 inputPost.id = 'inputPost';
@@ -22,6 +23,7 @@ inputPost.placeholder = '¿Qué estás pensando?'
 export const postButton = createElement('button', 'postButton', 'postButton', '', 'Publicar', '');
 
 
+//Likes
 
 export const savePost = (description, date, userId) => {
     database.collection('post').doc().set({
