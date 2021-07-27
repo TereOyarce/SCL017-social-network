@@ -96,6 +96,8 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
 
             const individualPost = createDiv('div', 'individualPost', 'individualPost');
+            individualPost.setAttribute('contenteditable', false);
+            individualPost.setAttribute('data-id', task.id);
 
             const editButton = createElement('button', 'editButton', 'editClassButton', '', 'Editar', '');
             editButton.classList.add('btn');
@@ -107,11 +109,12 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             const containerButton = createDiv('div', 'containerButton', 'containerButton');
 
             postContainer.appendChild(individualPost);
-            postContainer.appendChild(containerButton);
+
 
             if (userActive == task.userId) {
                 containerButton.appendChild(editButton);
                 containerButton.appendChild(buttonDelete);
+                postContainer.appendChild(containerButton);
             }
 
 
@@ -123,7 +126,13 @@ window.addEventListener('DOMContentLoaded', async(e) => {
         const btnDelete = document.querySelectorAll('.deleteClassButton');
         btnDelete.forEach(btn => {
             btn.addEventListener('click', async(e) => {
-                await deletePost(e.target.dataset.id);
+                const doc = await deletePost(e.target.dataset.id);
+                const task = doc.data();
+                let userActive = firebase.auth().currentUser.email;
+                if (userActive == task.userId) {
+                    id = doc.id;
+
+                }
             })
         });
 
@@ -133,18 +142,33 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
             btn.addEventListener('click', async(e) => {
 
+
                 const doc = await getId(e.target.dataset.id)
                 const task = doc.data();
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive == task.userId) {
                     id = doc.id;
                     console.log(userActive);
+                    [...individualPost].forEach(post => {
+                        console.log(post.getAttribute('data-id'));
+                        if (post.getAttribute('data-id') == id) {
+                            console.log('se empató');
+                            post.contentEditable = true;
+                        }
+                        //  let currentPost = post.getElementbyId(id);
 
+                    })
+
+                    individualPost.contentEditable = true;
                     editStatus = true;
-                    id = doc.id;
 
-                    form['inputPost'].value = task.description;
-                    form['postButton'].innerText = 'Actualizar';
+
+
+
+
+                    individualPost.value = task.description;
+                    btnEdit.innerText = 'Guardar';
+                    //form['postButton'].innerText = 'Actualizar';
                 } else {
                     console.log('noo');
 
