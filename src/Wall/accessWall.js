@@ -104,6 +104,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             buttonDelete.setAttribute('data-id', task.id);
             const containerButton = createDiv('div', 'containerButton', 'containerButton');
 
+
             postContainer.appendChild(individualPost);
             postContainer.appendChild(containerButton);
 
