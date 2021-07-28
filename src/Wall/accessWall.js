@@ -109,7 +109,11 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             buttonDelete.setAttribute('data-id', task.id);
             const containerButton = createDiv('div', 'containerButton', 'containerButton');
 
+            const infoStamp = document.createElement('p');
+            infoStamp.innerHTML = task.userId + '&nbsp; ' + '&nbsp;' + task.date;
+            individualPost.appendChild(infoStamp);
             postContainer.appendChild(individualPost);
+
             postContainer.appendChild(containerButton);
 
             if (userActive == task.userId) {
