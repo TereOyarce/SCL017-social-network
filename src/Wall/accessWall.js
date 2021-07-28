@@ -26,10 +26,14 @@ export const postButton = createElement('button', 'postButton', 'postButton', ''
 //Likes
 
 export const savePost = (description, date, userId) => {
+    let userLike = [];
+    let likes = 0;
     database.collection('post').doc().set({
         description,
         date,
-        userId
+        userId,
+        userLike,
+        likes
     });
 };
 
@@ -86,6 +90,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
         arrayPost.forEach((doc) => {
             const task = doc.data();
+            console.log(task);
             task.id = doc.id;
             console.log(task.id);
             let userActive = firebase.auth().currentUser.email;
