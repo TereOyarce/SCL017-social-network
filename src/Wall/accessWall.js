@@ -228,9 +228,17 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                         btn.innerText = '♥dislike';
 
                     } else if (btn.innerText == '♥dislike') {
-                        // const userLike = [];
-                        let userLike = task.userLike;
+                        const userFoundIt = task.userLike.includes(userActive);
+                        if (!userFoundIt) {
+                            task.userLike.push(userActive);
+                        } else {
+                            task.userLike.splice(task.userLike.indexOf(userActive), 1);
+                        }
 
+                        //console.log("EL USUARIO " + userActive + "LE DIO LIKE " + userFoundIt);
+                        updatePost(doc.id, {
+                            userLike: task.userLike
+                        })
                         btn.innerText = '♥like';
 
 
