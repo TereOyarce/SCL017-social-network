@@ -103,6 +103,14 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             const likeButton = createElement('button', 'likeButton', 'likeButton', '', '♥like', '');
             likeButton.classList.add('btn');
             likeButton.setAttribute('data-id', task.id);
+            const userFoundIt = task.userLike.includes(userActive);
+            if (!userFoundIt) {
+                likeButton.innerHTML = '♥like';
+                // task.userLike.push(userActive);
+            } else {
+                likeButton.innerHTML = '♥dislike';
+                //task.userLike.splice(task.userLike.indexOf(userActive), 1);
+            }
 
             const editButton = createElement('button', 'editButton', 'editClassButton', '', 'Editar', '');
             editButton.classList.add('btn');
@@ -114,7 +122,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             const containerButton = createDiv('div', 'containerButton', 'containerButton');
 
             const infoStamp = document.createElement('p');
-            infoStamp.innerHTML = task.userId + '&nbsp; ' + '&nbsp;' + task.date;
+            infoStamp.innerHTML = task.userId + '&nbsp; ' + '&nbsp;' + task.date + "CONTADOR DE LIKES :" + task.userLike.length;
             individualPost.appendChild(infoStamp);
             postContainer.appendChild(individualPost);
 
@@ -193,47 +201,80 @@ window.addEventListener('DOMContentLoaded', async(e) => {
         const btnLike = document.querySelectorAll('.likeButton');
 
 
+        //PELIGROSO PROGRAMADOR NUEVO NO MODFIQUES TAL WEÁPQ NO FUNCIONA HORAS INVERTIDAS AQUI 120
         btnLike.forEach(btn => {
 
             btn.addEventListener('click', async(e) => {
 
-                //GET DOCU BY ID (E.TARGET.DATASET.ID)
                 const doc = await getDocById(e.target.dataset.id)
                     //POSTS - ArrayPosts getIdlistPost arrPost 
                 const task = doc.data();
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive) {
-                    id = doc.id;
-                    if ([...individualPost].length > 0) {
-                        [...individualPost].forEach(post => {
 
-                            if (post.getAttribute('data-id') == id) {
-                                if (btn.innerText == '♥like') {
+                    if (btn.innerText == '♥like') {
 
-                                    var n = task.userLike.includes(userActive);
-                                    console.log("EL USUARIO " + userActive + "LE DIO LIKE " + n);
+                        const userFoundIt = task.userLike.includes(userActive);
+                        if (!userFoundIt) {
+                            task.userLike.push(userActive);
+                        } else {
+                            task.userLike.splice(task.userLike.indexOf(userActive), 1);
+                        }
 
-                                    btn.innerText = '♥dislike';
-
-                                } else if (btn.innerText == '♥dislike') {
-                                    // const userLike = [];
-                                    let userLike = task.userLike;
-
-                                    btn.innerText = '♥like';
-
-                                    // updatePost(id, {
-                                    //     description: post.innerHTML
-                                    // })
-                                }
-                            }
+                        //console.log("EL USUARIO " + userActive + "LE DIO LIKE " + userFoundIt);
+                        updatePost(doc.id, {
+                            userLike: task.userLike
                         })
-                    } else { //En el caso de ser un post,hacer esto
+                        btn.innerText = '♥dislike';
+
+                    } else if (btn.innerText == '♥dislike') {
+                        // const userLike = [];
+                        let userLike = task.userLike;
+
+                        btn.innerText = '♥like';
+
+
                     }
 
-                } else {
-                    console.log('noo');
-
                 }
+
+                //GET DOCU BY ID (E.TARGET.DATASET.ID)
+                // const doc = await getDocById(e.target.dataset.id)
+                //     //POSTS - ArrayPosts getIdlistPost arrPost 
+                // const task = doc.data();
+                // let userActive = firebase.auth().currentUser.email;
+                // if (userActive) {
+                //     id = doc.id;
+                //     if ([...individualPost].length > 0) {
+                //         [...individualPost].forEach(post => {
+
+                //             if (post.getAttribute('data-id') == id) {
+                //                 if (btn.innerText == '♥like') {
+
+                //                     var n = task.userLike.includes(userActive);
+                //                     console.log("EL USUARIO " + userActive + "LE DIO LIKE " + n);
+
+                //                     btn.innerText = '♥dislike';
+
+                //                 } else if (btn.innerText == '♥dislike') {
+                //                     // const userLike = [];
+                //                     let userLike = task.userLike;
+
+                //                     btn.innerText = '♥like';
+
+                //                     // updatePost(id, {
+                //                     //     description: post.innerHTML
+                //                     // })
+                //                 }
+                //             }
+                //         })
+                //     } else { //En el caso de ser un post,hacer esto
+                //     }
+
+                // } else {
+                //     console.log('noo');
+
+                // }
             })
         })
 
