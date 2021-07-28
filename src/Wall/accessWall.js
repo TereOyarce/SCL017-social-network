@@ -40,7 +40,7 @@ export const savePost = (description, date, userId) => {
 //Obtener data
 export const getPost = () => database.collection('post').get();
 
-export const getId = (id) => database.collection('post').doc(id).get();
+export const getDocById = (id) => database.collection('post').doc(id).get();
 
 //Obtener data en tiempo real
 export const onGetPost = (callback) => database.collection('post').orderBy("date", "desc").onSnapshot(callback);
@@ -100,6 +100,10 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             individualPost.setAttribute('contenteditable', false);
             individualPost.setAttribute('data-id', task.id);
 
+            const likeButton = createElement('button', 'likeButton', 'likeButton', '', '♥like', '');
+            likeButton.classList.add('btn');
+            likeButton.setAttribute('data-id', task.id);
+
             const editButton = createElement('button', 'editButton', 'editClassButton', '', 'Editar', '');
             editButton.classList.add('btn');
             editButton.setAttribute('data-id', task.id);
@@ -115,6 +119,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             postContainer.appendChild(individualPost);
 
             postContainer.appendChild(containerButton);
+            containerButton.appendChild(likeButton);
 
             if (userActive == task.userId) {
                 containerButton.appendChild(editButton);
@@ -145,7 +150,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
             btn.addEventListener('click', async(e) => {
 
-                const doc = await getId(e.target.dataset.id)
+                const doc = await getDocById(e.target.dataset.id)
                 const task = doc.data();
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive == task.userId) {
@@ -170,6 +175,55 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                                     updatePost(id, {
                                         description: post.innerHTML
                                     })
+                                }
+                            }
+                        })
+                    } else { //En el caso de ser un post,hacer esto
+                    }
+
+                } else {
+                    console.log('noo');
+
+                }
+            })
+        })
+
+
+        //Like
+        const btnLike = document.querySelectorAll('.likeButton');
+
+
+        btnLike.forEach(btn => {
+
+            btn.addEventListener('click', async(e) => {
+
+                //GET DOCU BY ID (E.TARGET.DATASET.ID)
+                const doc = await getDocById(e.target.dataset.id)
+                    //POSTS - ArrayPosts getIdlistPost arrPost 
+                const task = doc.data();
+                let userActive = firebase.auth().currentUser.email;
+                if (userActive) {
+                    id = doc.id;
+                    if ([...individualPost].length > 0) {
+                        [...individualPost].forEach(post => {
+
+                            if (post.getAttribute('data-id') == id) {
+                                if (btn.innerText == '♥like') {
+
+                                    var n = task.userLike.includes(userActive);
+                                    console.log("EL USUARIO " + userActive + "LE DIO LIKE " + n);
+
+                                    btn.innerText = '♥dislike';
+
+                                } else if (btn.innerText == '♥dislike') {
+                                    // const userLike = [];
+                                    let userLike = task.userLike;
+
+                                    btn.innerText = '♥like';
+
+                                    // updatePost(id, {
+                                    //     description: post.innerHTML
+                                    // })
                                 }
                             }
                         })
