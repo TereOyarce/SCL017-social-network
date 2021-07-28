@@ -294,7 +294,7 @@ a:active {
     padding-top: 0.5rem;
     font-family: 'Finger Paint';
     width: 45rem;
-    height: 5rem;
+    height: 8rem;
 }
 
 .containerButton {
@@ -320,5 +320,3 @@ a:active {
     color: var(--milkMedium);
     border-radius: 0.5rem;
 }
-
-  
