@@ -123,7 +123,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
             const infoStamp = document.createElement('p');
             infoStamp.innerHTML = task.userId + '&nbsp; ' + '&nbsp;' + task.date + "CONTADOR DE LIKES :" + task.userLike.length;
-            individualPost.appendChild(infoStamp);
+            postContainer.appendChild(infoStamp);
             postContainer.appendChild(individualPost);
 
             postContainer.appendChild(containerButton);
@@ -164,7 +164,6 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                 if (userActive == task.userId) {
                     id = doc.id;
                     console.log(userActive);
-                    if ([...individualPost].length > 0) {
                         [...individualPost].forEach(post => {
                             console.log(post.getAttribute('data-id'));
                             if (post.getAttribute('data-id') == id) {
@@ -186,9 +185,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                                 }
                             }
                         })
-                    } else { //En el caso de ser un post,hacer esto
-                    }
-
+                   
                 } else {
                     console.log('noo');
 
@@ -245,44 +242,6 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                     }
 
                 }
-
-                //GET DOCU BY ID (E.TARGET.DATASET.ID)
-                // const doc = await getDocById(e.target.dataset.id)
-                //     //POSTS - ArrayPosts getIdlistPost arrPost 
-                // const task = doc.data();
-                // let userActive = firebase.auth().currentUser.email;
-                // if (userActive) {
-                //     id = doc.id;
-                //     if ([...individualPost].length > 0) {
-                //         [...individualPost].forEach(post => {
-
-                //             if (post.getAttribute('data-id') == id) {
-                //                 if (btn.innerText == '♥like') {
-
-                //                     var n = task.userLike.includes(userActive);
-                //                     console.log("EL USUARIO " + userActive + "LE DIO LIKE " + n);
-
-                //                     btn.innerText = '♥dislike';
-
-                //                 } else if (btn.innerText == '♥dislike') {
-                //                     // const userLike = [];
-                //                     let userLike = task.userLike;
-
-                //                     btn.innerText = '♥like';
-
-                //                     // updatePost(id, {
-                //                     //     description: post.innerHTML
-                //                     // })
-                //                 }
-                //             }
-                //         })
-                //     } else { //En el caso de ser un post,hacer esto
-                //     }
-
-                // } else {
-                //     console.log('noo');
-
-                // }
             })
         })
 
