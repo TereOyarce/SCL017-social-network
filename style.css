@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@font-face {
+    font-family: 'nintendoP_Humming-E_002pr';
+    src: local('./resources/nintendoP_Humming-E_002pr.otf') format('opentype');
+    font-style: normal;
+    font-weight: normal;
+}
+
 :root {
     --milkMedium: #f8eebc;
     --milkLight: #fff9e5;
@@ -292,14 +299,14 @@ a:active {
     margin-top: 2rem;
     text-align: center;
     padding-top: 0.5rem;
-    font-family: 'Finger Paint';
+    font-family: 'nintendoP_Humming-E_002pr';
     width: 45rem;
     height: 8rem;
 }
 
 .containerButton {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
     background-color: white;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
@@ -307,16 +314,33 @@ a:active {
     width: 44rem;
     height: 3rem;
     cursor: pointer;
+    grid-gap: 1rem;
 }
 
 .editClassButton,
 .deleteClassButton {
     width: 5rem;
-    height: 1.5rem;
     appearance: none;
     border: none;
     text-decoration: none;
     background-color: var(--pink);
     color: var(--milkMedium);
     border-radius: 0.5rem;
+}
+
+.likeButton {
+    appearance: none;
+    background: none;
+    border: none;
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+    font-size: small;
+    text-align-last: right;
+    border-radius: 0.5rem;
+    color: var(--pink);
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    font-size: xx-large;
+    position: relative left;
 }
