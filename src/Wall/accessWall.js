@@ -53,29 +53,28 @@ export const updatePost = (id, updatedPost) => database.collection('post').doc(i
 
 
 //Publicar post
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', async(e) => {
     e.preventDefault();
     const description = form['inputPost'].value;
     console.log(description);
 
-    if (description == '') {
-        alert('No puedes dejar este campo vacío')
-    } else {
-        let today = new Date();
-        let dd = String(today.getDate()).padStart(2, '0');
-        let mm = String(today.getMonth() + 1).padStart(2, '0');
-        let yyyy = today.getFullYear();
-        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        today = dd + '/' + mm + '/' + yyyy + ' ' + time;
-        userId = firebase.auth().currentUser.email;
-        console.log(userId);
-        await savePost(description, today, userId);
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    today = dd + '/' + mm + '/' + yyyy + ' ' + time;
+    userId = firebase.auth().currentUser.email;
+    console.log(userId);
+    // console.log(timenow);
+    await savePost(description, today, userId);
 
 
-        editStatus = false;
-        id = '';
-        form.reset();
-    }
+    editStatus = false;
+    id = '';
+    //await getPost();
+    form.reset();
+
 })
 
 //Container donde caen los post
@@ -85,7 +84,7 @@ postContainer.classList.add('postContainer');
 
 
 //Manejar los post
-window.addEventListener('DOMContentLoaded', async (e) => {
+window.addEventListener('DOMContentLoaded', async(e) => {
     onGetPost((arrayPost) => {
         postContainer.innerHTML = '';
 
@@ -142,18 +141,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
         const btnDelete = document.querySelectorAll('.deleteClassButton');
         btnDelete.forEach(btn => {
-            btn.addEventListener('click', async (e) => {         
-                //PREGUNTAR POR ERROR DE DOC.DATA
-                if (confirm('¿Seguro que quieres eliminar este post?')) {
-                    
-                    let doc = await deletePost(e.target.dataset.id);
-                    let task = doc.data();
-                    let userActive = firebase.auth().currentUser.email;
-                    if (userActive == task.userId) {
-                        id = doc.id;
-                    }
-                } else {
-                    console.log('No se borró')
+            btn.addEventListener('click', async(e) => {
+                const doc = await deletePost(e.target.dataset.id);
+                const task = doc.data();
+                let userActive = firebase.auth().currentUser.email;
+                if (userActive == task.userId) {
+                    id = doc.id;
+
                 }
             })
         });
@@ -162,7 +156,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
         btnEdit.forEach(btn => {
 
-            btn.addEventListener('click', async (e) => {
+            btn.addEventListener('click', async(e) => {
 
                 const doc = await getDocById(e.target.dataset.id)
                 const task = doc.data();
@@ -204,13 +198,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         const btnLike = document.querySelectorAll('.likeButton');
 
 
-
+        //PELIGROSO PROGRAMADOR NUEVO NO MODFIQUES TAL WEÁPQ NO FUNCIONA HORAS INVERTIDAS AQUI 120
         btnLike.forEach(btn => {
 
-            btn.addEventListener('click', async (e) => {
+            btn.addEventListener('click', async(e) => {
 
                 const doc = await getDocById(e.target.dataset.id)
-                //POSTS - ArrayPosts getIdlistPost arrPost 
+                    //POSTS - ArrayPosts getIdlistPost arrPost 
                 const task = doc.data();
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive) {
