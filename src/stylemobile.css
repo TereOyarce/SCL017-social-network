@@ -275,6 +275,7 @@
         width: 19rem;
         height: 8rem;
         border-color: #2D2D2D;
+        font-size: small;
     }
     .containerButton {
         display: flex;
@@ -289,7 +290,6 @@
     .editClassButton,
     .deleteClassButton {
         width: 5rem;
-        height: 1.5rem;
         appearance: none;
         border: none;
         text-decoration: none;
@@ -353,13 +353,12 @@
         padding-left: 1.5rem;
         padding-right: 1rem;
         font-size: small;
-        background-repeat: no-repeat;
-        background-size: 2.2rem;
-        background-position: left;
         text-align-last: right;
         border-radius: 0.5rem;
-        color: var(--turquoise);
+        color: var(--pink);
         font-weight: bold;
         cursor: pointer;
+        background-color: white;
+        font-size: xx-large;
     }
 }
