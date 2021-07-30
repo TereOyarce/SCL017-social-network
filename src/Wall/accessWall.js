@@ -100,15 +100,15 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             individualPost.setAttribute('contenteditable', false);
             individualPost.setAttribute('data-id', task.id);
 
-            const likeButton = createElement('button', 'likeButton', 'likeButton', '', '♥like', '');
+            const likeButton = createElement('button', 'likeButton', 'likeButton', '', '♡', '');
             likeButton.classList.add('btn');
             likeButton.setAttribute('data-id', task.id);
             const userFoundIt = task.userLike.includes(userActive);
             if (!userFoundIt) {
-                likeButton.innerHTML = '♥like';
+                likeButton.innerHTML = '♡';
                 // task.userLike.push(userActive);
             } else {
-                likeButton.innerHTML = '♥dislike';
+                likeButton.innerHTML = '❤';
                 //task.userLike.splice(task.userLike.indexOf(userActive), 1);
             }
 
@@ -203,13 +203,14 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
             btn.addEventListener('click', async(e) => {
 
+
                 const doc = await getDocById(e.target.dataset.id)
                     //POSTS - ArrayPosts getIdlistPost arrPost 
                 const task = doc.data();
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive) {
 
-                    if (btn.innerText == '♥like') {
+                    if (btn.innerText == '♡') {
 
                         const userFoundIt = task.userLike.includes(userActive);
                         if (!userFoundIt) {
@@ -222,9 +223,9 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                         updatePost(doc.id, {
                             userLike: task.userLike
                         })
-                        btn.innerText = '♥dislike';
+                        btn.innerText = '❤';
 
-                    } else if (btn.innerText == '♥dislike') {
+                    } else if (btn.innerText == '❤') {
                         const userFoundIt = task.userLike.includes(userActive);
                         if (!userFoundIt) {
                             task.userLike.push(userActive);
@@ -236,7 +237,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                         updatePost(doc.id, {
                             userLike: task.userLike
                         })
-                        btn.innerText = '♥like';
+                        btn.innerText = '♡';
 
 
                     }
