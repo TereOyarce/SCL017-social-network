@@ -317,6 +317,13 @@ a:active {
     grid-gap: 1rem;
 }
 
+.infoStamp{
+    font-family: 'nintendoP_Humming-E_002pr';
+    color: var(--milkLight);
+    font-size: 0.5rem;
+}
+
+
 .editClassButton,
 .deleteClassButton {
     width: 5rem;
@@ -326,6 +333,7 @@ a:active {
     background-color: var(--pink);
     color: var(--milkMedium);
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .likeButton {
