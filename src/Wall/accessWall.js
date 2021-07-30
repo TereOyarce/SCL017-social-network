@@ -100,15 +100,15 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             individualPost.setAttribute('contenteditable', false);
             individualPost.setAttribute('data-id', task.id);
 
-            const likeButton = createElement('button', 'likeButton', 'likeButton', '', '♡', '');
+            const likeButton = createElement('button', 'likeButton', 'likeButton', '', '🤍', '');
             likeButton.classList.add('btn');
             likeButton.setAttribute('data-id', task.id);
             const userFoundIt = task.userLike.includes(userActive);
             if (!userFoundIt) {
-                likeButton.innerHTML = '♡' + task.userLike.length;
+                likeButton.innerHTML = '🤍' + task.userLike.length;
                 // task.userLike.push(userActive);
             } else {
-                likeButton.innerHTML = '❤' + task.userLike.length;
+                likeButton.innerHTML = '💚' + task.userLike.length;
                 //task.userLike.splice(task.userLike.indexOf(userActive), 1);
             }
 
@@ -123,8 +123,8 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
             const infoStamp = document.createElement('p');
             infoStamp.classList.add('infoStamp');
-            infoStamp.innerHTML = task.userId + '&nbsp; ' + '&nbsp;' + task.date ;
-            
+            infoStamp.innerHTML = task.userId + '&nbsp; ' + '&nbsp;' + task.date;
+
             postContainer.appendChild(individualPost);
             postContainer.appendChild(containerButton);
             postContainer.appendChild(infoStamp);
@@ -134,7 +134,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                 containerButton.appendChild(editButton);
                 containerButton.appendChild(buttonDelete);
             }
-            
+
             individualPost.innerHTML += task.description, editButton, buttonDelete;
 
         })
@@ -210,7 +210,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive) {
 
-                    if (btn.innerText == '♡' + task.userLike.length) {
+                    if (btn.innerText == '🤍' + task.userLike.length) {
 
                         const userFoundIt = task.userLike.includes(userActive);
                         if (!userFoundIt) {
@@ -223,9 +223,9 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                         updatePost(doc.id, {
                             userLike: task.userLike
                         })
-                        btn.innerText = '❤' + task.userLike.length;
+                        btn.innerText = '💚' + task.userLike.length;
 
-                    } else if (btn.innerText == '❤' + task.userLike.length) {
+                    } else if (btn.innerText == '💚' + task.userLike.length) {
                         const userFoundIt = task.userLike.includes(userActive);
                         if (!userFoundIt) {
                             task.userLike.push(userActive);
@@ -237,7 +237,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                         updatePost(doc.id, {
                             userLike: task.userLike
                         })
-                        btn.innerText = '♡' + task.userLike.length;
+                        btn.innerText = '🤍' + task.userLike.length;
 
 
                     }
