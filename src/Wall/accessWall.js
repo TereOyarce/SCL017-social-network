@@ -58,22 +58,24 @@ form.addEventListener('submit', async(e) => {
     const description = form['inputPost'].value;
     console.log(description);
 
-    let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0');
-    let yyyy = today.getFullYear();
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    today = dd + '/' + mm + '/' + yyyy + ' ' + time;
-    userId = firebase.auth().currentUser.email;
-    console.log(userId);
-    // console.log(timenow);
-    await savePost(description, today, userId);
+    if (description == '') {
+        alert('No puedes dejar este campo vacío')
+    } else {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        today = dd + '/' + mm + '/' + yyyy + ' ' + time;
+        userId = firebase.auth().currentUser.email;
+        console.log(userId);
+        await savePost(description, today, userId);
 
 
-    editStatus = false;
-    id = '';
-    //await getPost();
-    form.reset();
+        editStatus = false;
+        id = '';
+        form.reset();
+    }
 
 })
 
@@ -142,13 +144,18 @@ window.addEventListener('DOMContentLoaded', async(e) => {
         const btnDelete = document.querySelectorAll('.deleteClassButton');
         btnDelete.forEach(btn => {
             btn.addEventListener('click', async(e) => {
-                const doc = await deletePost(e.target.dataset.id);
-                const task = doc.data();
+               //PREGUNTAR POR ERROR DE DOC.DATA
+               if (confirm('¿Seguro que quieres eliminar este post?')) {
+
+                let doc = await deletePost(e.target.dataset.id);
+                let task = doc.data();
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive == task.userId) {
                     id = doc.id;
-
                 }
+                    } else {
+                    console.log('No se borró')
+                    }
             })
         });
 
