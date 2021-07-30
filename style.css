@@ -203,6 +203,7 @@ a:active {
     width: 100%;
     position: fixed;
     z-index: 10;
+    justify-content: space-between;
 }
 
 .bodyContainer {
@@ -224,7 +225,6 @@ a:active {
 
 .navContainer .logoutButton {
     width: 10rem;
-    margin-left: 41rem;
     font-family: 'Finger Paint';
     font-size: 18px;
     color: var(--milkLight);
@@ -317,12 +317,11 @@ a:active {
     grid-gap: 1rem;
 }
 
-.infoStamp{
+.infoStamp {
     font-family: 'nintendoP_Humming-E_002pr';
     color: var(--milkLight);
     font-size: 0.5rem;
 }
-
 
 .editClassButton,
 .deleteClassButton {
@@ -349,6 +348,6 @@ a:active {
     font-weight: bold;
     cursor: pointer;
     background-color: white;
-    font-size: xx-large;
+    font-size: x-large;
     position: relative left;
 }
