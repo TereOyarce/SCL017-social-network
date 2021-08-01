@@ -223,6 +223,11 @@ a:active {
     width: 10%;
 }
 
+.logoBody {
+    width: 35%;
+    align-self: center;
+}
+
 .navContainer .logoutButton {
     width: 10rem;
     font-family: 'Finger Paint';

@@ -55,6 +55,8 @@ const wall = {
         //Body post
         const bodyContainer = createDiv('div', 'bodyContainer', 'bodyContainer');
         bodyContainer.appendChild(navMobile);
+        const logoBody = createElement('img', 'logoBody', 'logoBody', '', '', './img/loguitonook.png');
+        bodyContainer.appendChild(logoBody);
         form.appendChild(inputPost);
         form.appendChild(postButton);
         divImg.appendChild(imgNookLink);
