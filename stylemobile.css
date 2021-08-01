@@ -213,27 +213,26 @@
     .logoBody {
         width: 45%;
         align-self: center;
+        align-content: center;
     }
     .bodyContainer {
-        display: grid;
-        grid-template-columns: 1;
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
         background-color: var(--milkLight);
         width: 100vw;
         height: 100vh;
-        position: absolute;
         padding-left: auto;
         padding-right: auto;
     }
     #formId {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
         background-color: var(--lightBlue);
         padding: 3rem;
         height: 6rem;
         width: 16rem;
         border-radius: 0.4rem;
+        align-content: center;
+        align-self: center;
     }
     #formId textarea {
         appearance: none;
