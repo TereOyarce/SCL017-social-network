@@ -210,6 +210,10 @@
         margin-left: 1rem;
         margin-top: 0.3rem;
     }
+    .logoBody {
+        width: 45%;
+        align-self: center;
+    }
     .bodyContainer {
         display: grid;
         grid-template-columns: 1;
