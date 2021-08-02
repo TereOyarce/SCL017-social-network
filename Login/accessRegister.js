@@ -6,6 +6,8 @@ export const register = (emailRegister, passRegister, sucess) => {
         succCheck.innerHTML = '<p>Registro exitoso, verificar email</p>';
         firebase.auth().currentUser.sendEmailVerification()
             .then(() => {
+                alert('Registro exitoso, verificar email');
+
                 // Email verification sent!
                 // ...
             });
@@ -17,8 +19,8 @@ export const register = (emailRegister, passRegister, sucess) => {
         })
         .then((userCredential) => {
             // Signed in
-            const user = userCredential.user;
-            console.log(user);
+            // const user = userCredential.user;
+            //console.log(user);
             // ...
         })
         .catch((error) => {
@@ -26,7 +28,8 @@ export const register = (emailRegister, passRegister, sucess) => {
             const errorMessage = error.message;
             // ..
             console.log(errorCode);
-            alert(errorCode);
+            alert(errorMessage);
+            //alert(errorCode);
             console.log(errorMessage);
 
         });

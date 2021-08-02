@@ -10,7 +10,7 @@ export const normalAccess = (email, pass) => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert('Porfavor,ingresa email y contraseña válidos');
+            alert('Por favor, ingresa email y contraseña válidos');
             console.log(errorCode);
             console.log(errorMessage);
 
