@@ -92,7 +92,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
         arrayPost.forEach((doc) => {
             const task = doc.data();
-            console.log(task);
+            //console.log(task);
             task.id = doc.id;
             console.log(task.id);
             let userActive = firebase.auth().currentUser.email;
