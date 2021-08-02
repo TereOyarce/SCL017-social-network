@@ -53,7 +53,7 @@ export const updatePost = (id, updatedPost) => database.collection('post').doc(i
 
 
 //Publicar post
-form.addEventListener('submit', async(e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const description = form['inputPost'].value;
     console.log(description);
@@ -86,15 +86,13 @@ postContainer.classList.add('postContainer');
 
 
 //Manejar los post
-window.addEventListener('DOMContentLoaded', async(e) => {
+window.addEventListener('DOMContentLoaded', async (e) => {
     onGetPost((arrayPost) => {
         postContainer.innerHTML = '';
 
         arrayPost.forEach((doc) => {
             const task = doc.data();
-            console.log(task);
             task.id = doc.id;
-            console.log(task.id);
             let userActive = firebase.auth().currentUser.email;
 
 
@@ -143,16 +141,21 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
         const btnDelete = document.querySelectorAll('.deleteClassButton');
         btnDelete.forEach(btn => {
-            btn.addEventListener('click', async(e) => {
+            btn.addEventListener('click', async (e) => {
                 //PREGUNTAR POR ERROR DE DOC.DATA
+                console.log(e.target.dataset.id);
                 if (confirm('¿Seguro que quieres eliminar este post?')) {
-
-                    let doc = await deletePost(e.target.dataset.id);
-                    let task = doc.data();
                     let userActive = firebase.auth().currentUser.email;
+                    let doc = await getDocById(e.target.dataset.id);
+                    let task = doc.data();
                     if (userActive == task.userId) {
                         id = doc.id;
+                        await deletePost(e.target.dataset.id)
                     }
+                    
+                    
+
+
                 } else {
                     console.log('No se borró')
                 }
@@ -163,7 +166,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
 
         btnEdit.forEach(btn => {
 
-            btn.addEventListener('click', async(e) => {
+            btn.addEventListener('click', async (e) => {
 
                 const doc = await getDocById(e.target.dataset.id)
                 const task = doc.data();
@@ -208,11 +211,11 @@ window.addEventListener('DOMContentLoaded', async(e) => {
         //PELIGROSO PROGRAMADOR NUEVO NO MODFIQUES TAL WEÁPQ NO FUNCIONA HORAS INVERTIDAS AQUI 120
         btnLike.forEach(btn => {
 
-            btn.addEventListener('click', async(e) => {
+            btn.addEventListener('click', async (e) => {
 
 
                 const doc = await getDocById(e.target.dataset.id)
-                    //POSTS - ArrayPosts getIdlistPost arrPost 
+                //POSTS - ArrayPosts getIdlistPost arrPost 
                 const task = doc.data();
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive) {
