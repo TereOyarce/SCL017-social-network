@@ -102,15 +102,15 @@ window.addEventListener('DOMContentLoaded', async(e) => {
             individualPost.setAttribute('contenteditable', false);
             individualPost.setAttribute('data-id', task.id);
 
-            const likeButton = createElement('button', 'likeButton', 'likeButton', '', '🤍', '');
+            const likeButton = createElement('button', 'likeButton', 'likeButton', '', '😺', '');
             likeButton.classList.add('btn');
             likeButton.setAttribute('data-id', task.id);
             const userFoundIt = task.userLike.includes(userActive);
             if (!userFoundIt) {
-                likeButton.innerHTML = '🤍' + task.userLike.length;
+                likeButton.innerHTML = '😺' + task.userLike.length;
                 // task.userLike.push(userActive);
             } else {
-                likeButton.innerHTML = '💚' + task.userLike.length;
+                likeButton.innerHTML = '😻' + task.userLike.length;
                 //task.userLike.splice(task.userLike.indexOf(userActive), 1);
             }
 
@@ -144,18 +144,18 @@ window.addEventListener('DOMContentLoaded', async(e) => {
         const btnDelete = document.querySelectorAll('.deleteClassButton');
         btnDelete.forEach(btn => {
             btn.addEventListener('click', async(e) => {
-               //PREGUNTAR POR ERROR DE DOC.DATA
-               if (confirm('¿Seguro que quieres eliminar este post?')) {
+                //PREGUNTAR POR ERROR DE DOC.DATA
+                if (confirm('¿Seguro que quieres eliminar este post?')) {
 
-                let doc = await deletePost(e.target.dataset.id);
-                let task = doc.data();
-                let userActive = firebase.auth().currentUser.email;
-                if (userActive == task.userId) {
-                    id = doc.id;
-                }
-                    } else {
-                    console.log('No se borró')
+                    let doc = await deletePost(e.target.dataset.id);
+                    let task = doc.data();
+                    let userActive = firebase.auth().currentUser.email;
+                    if (userActive == task.userId) {
+                        id = doc.id;
                     }
+                } else {
+                    console.log('No se borró')
+                }
             })
         });
 
@@ -217,7 +217,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                 let userActive = firebase.auth().currentUser.email;
                 if (userActive) {
 
-                    if (btn.innerText == '🤍' + task.userLike.length) {
+                    if (btn.innerText == '😺' + task.userLike.length) {
 
                         const userFoundIt = task.userLike.includes(userActive);
                         if (!userFoundIt) {
@@ -230,9 +230,9 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                         updatePost(doc.id, {
                             userLike: task.userLike
                         })
-                        btn.innerText = '💚' + task.userLike.length;
+                        btn.innerText = '😻' + task.userLike.length;
 
-                    } else if (btn.innerText == '💚' + task.userLike.length) {
+                    } else if (btn.innerText == '😻' + task.userLike.length) {
                         const userFoundIt = task.userLike.includes(userActive);
                         if (!userFoundIt) {
                             task.userLike.push(userActive);
@@ -244,7 +244,7 @@ window.addEventListener('DOMContentLoaded', async(e) => {
                         updatePost(doc.id, {
                             userLike: task.userLike
                         })
-                        btn.innerText = '🤍' + task.userLike.length;
+                        btn.innerText = '😺' + task.userLike.length;
 
 
                     }
