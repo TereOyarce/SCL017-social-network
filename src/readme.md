@@ -6,6 +6,7 @@
 * [2. Planificación Inicial](#2-planificación-inicial)
 * [3. Prototipos](#3-prototipos)
 * [4. Test de usabilidad](#4-test-de-usabilidad)
+* [5. Producto Final](#5-producto-final)
 
 
 
@@ -42,3 +43,21 @@ Cabe mencionar que, así como fue sugerido en el feedback, seguimos la paleta de
 #### <img src="./img/Paleta.jpg" width="600px"/>
 
 ## 4. Test de Usabilidad 
+
+Con nuestra página web contando con un login y muro funcional, decidimos testear mediante una breve encuesta. Salvo explicar el público objetivo de la red social y recordar probar tanto la versión web como móvil, no dimos mayores explicaciones a los usuarios con tal de que fuesen ellos quienes exploraran los detalles de la aplicación con libertad. 
+
+Estas fueron las respuestas de los usuarios: 
+#### <img src="./img/testU.png" width="600px"/>
+
+Con resultados del test podemos concluir lo siguiente: 
+* La página si es intuitiva, es decir, no necesita instrucciones para saber cómo manejarla. 
+* La paleta de colores escogida y el diseño en general es cómodo y familiar a Animal Crossing. 
+* Aunque es posible identificar al usuario que publicó un post, hubiese sido más efectivo mostrar el nombre en lugar del correo electrónico. 
+
+## 5. Producto Final
+
+Finalmente, luego de los feedback recibidos y todos los ajustes posibles realizados, Nook-Nook, nuestra aplicación de Red Social, luce de la siguiente manera: 
+
+* Versión Web
+#### <img src="./img/w1.png" width="600px"/>
+#### <img src="./img/w22.png" width="600px"/>
